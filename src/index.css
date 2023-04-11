@@ -1,0 +1,36 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.baseBadge {
+    @apply  text-xs font-semibold mr-2 px-2.5 py-0.5 rounded;
+}
+
+.pending {
+    @apply bg-slate-200 text-slate-800;
+}
+
+.delivered {
+    @apply bg-orange-200 text-orange-800;
+}
+
+.received {
+    @apply bg-green-200 text-green-800;
+}
+
+.read {
+    @apply bg-blue-200 text-blue-800;
+}
+
+.forgotten {
+    @apply bg-red-800 text-red-200;
+}
+
+.started {
+    @apply bg-blue-800 text-blue-200;
+}
+
+.finished{
+    @apply bg-green-800 text-green-200;
+}

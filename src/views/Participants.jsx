@@ -31,7 +31,6 @@ function Participants () {
         <div>
             <Table striped bordered >
                <thead>
-                  <th>Nombre</th>
                   <th>Nom</th>
                   <th>Prenom</th>
                   <th>Groupe</th>
@@ -40,7 +39,6 @@ function Participants () {
                <tbody>
                   {Participants?.data?.map(Participants => (
                       <tr key={Participants.id}>
-                          <td>{Participants.attributes.Nombre}</td>
                           <td>{Participants.attributes.Nom}</td>
                           <td>{Participants.attributes.Prenom}</td>
                           <td>{Participants.attributes.Groupe}</td>

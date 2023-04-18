@@ -41,7 +41,7 @@ const MainRouter = () => {
     
         <Route path="/participants" element={ <Participants /> }></Route>
         <Route path="/Ajouter" element={ <Ajouter /> }></Route>
-        <Route path="/modifier/:id" element={ <Modifier /> }></Route>
+        <Route path="/modfier/:id" element={ <Modifier /> }></Route>
         
         {/* </Route> */} 
 

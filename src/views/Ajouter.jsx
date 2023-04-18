@@ -6,7 +6,6 @@ import Button from 'react-bootstrap/Button';
 import '../Ajouter.css'
 
 function Ajouter(){
-    const [num,setnum]=useState();
     const [nom,setnom]=useState();
     const [prenom,setprenom]=useState();
     const [groupe,setgroupe]=useState();
@@ -17,7 +16,6 @@ function Ajouter(){
         let mydt={
             "data":
                 {
-                "Nombre":num,
                 "Nom":nom,
                 "Prenom":prenom
             }
@@ -43,18 +41,7 @@ function Ajouter(){
     return(
         <>
          <form action="" method="post">
-            <InputGroup className="mb-3">
-               <InputGroup.Text id="inputGroup">
-               Nombre
-               </InputGroup.Text>
-            <Form.Control
-               aria-label="Nombre"
-               aria-describedby="inputGroup"
-               className="formControl"
-               value={num} 
-               onChange={(e)=>{setnum(e.target.value)}}
-            />
-            </InputGroup>                
+                           
             <InputGroup className="mb-3">
                <InputGroup.Text id="inputGroup">
                Nom
@@ -62,7 +49,6 @@ function Ajouter(){
             <Form.Control
                aria-label="Nom"
                aria-describedby="inputGroup"
-               className="formControl"
                value={nom} 
                onChange={(e)=>{setnom(e.target.value)}}
             />
@@ -74,7 +60,6 @@ function Ajouter(){
             <Form.Control
                aria-label="Prenom"
                aria-describedby="inputGroup"
-               className="formControl"
                value={prenom} 
                onChange={(e)=>{setprenom(e.target.value)}}
             />
@@ -84,9 +69,6 @@ function Ajouter(){
                Groupe
                </InputGroup.Text>
             <Form.Control
-               aria-label="Groupe"
-               aria-describedby="inputGroup"
-               id="formControl"
                value={groupe} 
                onChange={(e)=>{setgroupe(e.target.value)}}
             />

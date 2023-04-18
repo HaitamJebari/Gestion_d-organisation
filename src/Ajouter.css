@@ -9,14 +9,7 @@ input{
 label{
     margin-left: 10px;
 }
-#buttA{
-    background-color: rgb(71, 237, 15);
-   margin: 94px;
-   margin-left: 290px;
-   padding: 7px;
-   border-radius: 4px;
-   width :530px;
-}
+
 #inputGroup{
     width: 100px;
 }

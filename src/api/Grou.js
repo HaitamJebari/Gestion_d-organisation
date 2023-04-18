@@ -8,7 +8,7 @@ import { useParams } from "react-router-dom";
 export const api = async ()=>{
 
 try{
-    let rawData = await fetch('http://localhost:1337/api/groups');
+    let rawData = await fetch('http://192.168.1.88:1337/api/groups');
     let dataJson = await rawData.json();
     return (dataJson)
 
@@ -28,7 +28,7 @@ try{
 export const deleteit = async (id)=>{
 
 try{    
-    let Fdeleteitem = await fetch('http://localhost:1337/api/groups/'+id,{
+    let Fdeleteitem = await fetch('http://192.168.1.88:1337/api/groups/'+id,{
         method : 'DELETE',
     });
     let deleteite = await Fdeleteitem.json();

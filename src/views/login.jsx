@@ -39,10 +39,10 @@ const LoginScreen = () => {
   const loginAction = async () => {
     // setShowAlert(!showAlert);
     setBtnLoading(true);
-    let data = await Login(username, pass);
-    if (data && data?.status == 200) {
-      if (data.response.access_token) {
-        localStorage.setItem("_USER_", JSON.stringify(data.response));
+    // let data = await Login(username, pass);
+    // if (data && data?.status == 200) {
+    //   if (data.response.access_token) {
+    //     localStorage.setItem("_USER_", JSON.stringify(data.response));
         // let groups = await getGroups(data.response.current_user?.uid, data.response.access_token);
         
         // if (groups && groups.status == 200 && groups.response.length > 0) {
@@ -51,17 +51,18 @@ const LoginScreen = () => {
         // } else {
         //   setUserGroups(null);
         // }
-        setUserInfo(data.response);
+        // setUserInfo(data.response);
         navigate("/", { replace: true });
+        setBtnLoading(false);
       }
-    } else {
-      const id = Date.now();
-      pushAlert({ id, message: data?.message || "Pas de connexion internet", mode: "danger" });
-    }
+    // } else {
+    //   const id = Date.now();
+    //   pushAlert({ id, message: data?.message || "Pas de connexion internet", mode: "danger" });
+    // }
     // setAlertList(alertList.push({ id: 1, mode: "info", message: "text here" }));
     // console.log(alertList);
-    setBtnLoading(false);
-  };
+  //   setBtnLoading(false);
+  // };
 
   return (
     <motion.div className="min-h-full flex items-center justify-center py-24 px-4 sm:px-6 lg:px-8" initial={{ opacity: 0, y: "-5vw" }} animate={{ opacity: 1, y: "0vw", transition: 0.3 }}>

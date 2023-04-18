@@ -23,23 +23,19 @@ const TheNav = () => {
         <div className="absolute inset-y-0 left-0 flex items-center sm:hidden"></div>
         <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
           <div className="flex-shrink flex items-center">
-            <img src={Logo} alt="logo" className="w-16"></img>
+            <Link to='/'><img src={Logo} alt="logo" className="w-16"></img></Link> 
           </div>
-          {userInfo ? (
             <div className="flex space-x-4 ml-12">
-              <CustomLink to="/groupes/cours" exact={false}>
-                Envoyer un cours
+              <CustomLink to="/gr" exact={false}>
+                Getion de groupes
               </CustomLink>
-              <CustomLink to="/history" exact={false}>
-                Historique
+              <CustomLink to="/organisation" exact={false}>
+                Getion de organisation
               </CustomLink>
               {/* <a href="https://digitaldevops.net/drupal/">
                 <div>Gérer les groupes</div>
               </a> */}
             </div>
-          ) : (
-            <></>
-          )}
         </div>
         {userInfo ? (
           <div className="flex-shrink flex items-center space-x-4">

@@ -10,8 +10,12 @@ import { useContext } from "react";
 import { UserContext } from "../context/UserContext";
 import MessageHistory from "../components/MessageHistory";
 import ModifierGroup from "../views/ModifierGroup";
+import Organisation_liste from "../views/organisation_liste";
 import Ajouter from "../views/Ajouter";
-
+import AjouterOrganisation from "../views/AjouterOrganisation";
+import UpdateOraganisation from "../views/UpdateOraganisation";
+import ShowGroups from "../views/showGroups";
+import MainPage from "../views/MainPage";
 const MainRouter = () => {
   const { userInfo } = useContext(UserContext);
 
@@ -19,13 +23,18 @@ const MainRouter = () => {
   return (
     <AnimatePresence exitBeforeEnter>
       <Routes location={location} key={location.pathname}>
-        <Route path="/" element={<Navigate to="/gr" replace />} />
+        <Route path="/" element={<MainPage />} />
 
         <Route path="/login" element={<LoginScreen />} />
+        <Route path="/Organisation" element={<Organisation_liste/>} />
 
         <Route path="/gr" element={<Group/>}/>
         <Route path='/Modfier/:id' element={<ModifierGroup/>}/>
         <Route path="/Ajouter" element={<Ajouter/>}/>
+        
+        <Route path="/AjouterOrganisation" element={<AjouterOrganisation/>} />
+        <Route path="/UpdateOrganisation/:id" element={<UpdateOraganisation/>}/>
+        <Route path="/showGroups/:id" element={<ShowGroups/>} />
         {/* <Route path="/groupes" element={<ContactClients />}>
           <Route index path="" element={<Navigate to="/groupes/cours" replace />} />
           <Route index path="cours" element={<SendCourse />} />

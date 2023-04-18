@@ -32,6 +32,9 @@ const TheNav = () => {
               <CustomLink to="/organisation" exact={false}>
                 Getion de organisation
               </CustomLink>
+              <CustomLink to="/participants" exact={false}>
+                Getion de participants
+              </CustomLink>
               {/* <a href="https://digitaldevops.net/drupal/">
                 <div>Gérer les groupes</div>
               </a> */}

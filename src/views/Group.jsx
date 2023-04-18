@@ -41,8 +41,8 @@ export default function Group() {
                             <td>{e.id}</td>
                             <td>{e.attributes.group_name}</td>
                             <td>
-                            <Link to={`/Modfier/${e.id}`}>             
-                            <Button as="Link" variant="outline-primary">
+                            <Link to={`/ModifierGroup/${e.id}`}>             
+                            <Button as="Link" variant="primary">
                                 Modfier
                             </Button>
                             </Link>
@@ -59,8 +59,8 @@ export default function Group() {
                 })
             }
         </tbody>
-        <Link to='/Ajouter'>             
-           <Button as="Link" variant="outline-success" className='mt-5'>
+        <Link to='/Ajoutergr'>             
+           <Button as="Link" variant="success" className='mt-5'>
            Ajouter Nouvelle Group
         </Button>
         </Link>

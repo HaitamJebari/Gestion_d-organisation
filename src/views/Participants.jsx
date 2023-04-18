@@ -29,12 +29,12 @@ function Participants () {
 }
     return (
         <div>
-            <Table striped bordered >
+         <Table striped bordered hover>
                <thead>
                   <th>Nom</th>
                   <th>Prenom</th>
                   <th>Groupe</th>
-                  <th></th>
+                  <th>Action</th>
                </thead>
                <tbody>
                   {Participants?.data?.map(Participants => (
@@ -43,27 +43,24 @@ function Participants () {
                           <td>{Participants.attributes.Prenom}</td>
                           <td>{Participants.attributes.Groupe}</td>
                           <td>
-
-                          <Link to={`/Modifier/${Participants.id}`}>
-                             <Button variant="outline-primary">Modifier</Button>
+                          <Link to={`/modifier/${Participants.id}`}>
+                                <Button as="Link" variant="primary">
+                                    Modifier
+                                </Button>
                           </Link>
-                          </td>
-                          <td>
-                             <Button variant="outline-danger" onClick={()=>delt(Participants.id)}>Supprimer</Button>
+                            <Button as="Link" variant="danger" className='ml-5'onClick={()=>deleteorg(e.id)}>
+                                Supprimer
+                            </Button>
                           </td>
                       </tr>
                  ))}
                </tbody>
-               <tfoot >
-                  <tr>
-                  <td colSpan='6'>
-                      <Link to={`/Ajouter`}>
-                           <Button variant="outline-success" className="buttA">Ajouter un Participant</Button>{' '}
-                      </Link>
-                  </td>
-                  </tr>
-               </tfoot>
             </Table>
+            <Link to={`/Ajouter`}>
+                <Button as="Link" variant="success" className='mt-5 ml-5' >
+                    Ajouter Nouvelle Participant
+                </Button>
+            </Link>
         </div>
     );
 }

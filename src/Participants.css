@@ -1,0 +1,22 @@
+td {
+    width: 500px;
+}
+th{
+    width: 500px;
+}
+
+.buttS{
+   background-color: red;
+   margin: 4px;
+   padding: 7px;
+   border-radius: 4px;
+}
+.buttM{
+    background-color: rgb(71, 237, 15);
+   margin: 4px;
+   padding: 7px;
+   border-radius: 4px;
+}
+.buttA{
+    text-align: center;
+}

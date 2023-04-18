@@ -1,14 +1,15 @@
 import { Navigate, Route, Routes, useLocation } from "react-router-dom";
-import SendCourse from "../components/SendCourse";
 import ContactClients from "../views/ContactClients";
 import History from "../views/History";
 import Group from "../views/Group";
 import { AnimatePresence } from "framer-motion";
-import SendCred from "../components/SendCred";
 import LoginScreen from "../views/login";
 import { useContext } from "react";
 import { UserContext } from "../context/UserContext";
 import MessageHistory from "../components/MessageHistory";
+import Participants from "../views/Participants";
+import Ajoutergr from "../views/Ajoutergr";
+import Modifier from "../views/Modifier";
 import ModifierGroup from "../views/ModifierGroup";
 import Organisation_liste from "../views/organisation_liste";
 import Ajouter from "../views/Ajouter";
@@ -35,11 +36,30 @@ const MainRouter = () => {
         <Route path="/AjouterOrganisation" element={<AjouterOrganisation/>} />
         <Route path="/UpdateOrganisation/:id" element={<UpdateOraganisation/>}/>
         <Route path="/showGroups/:id" element={<ShowGroups/>} />
+
+
+
+      <Routes location={location} key={location.pathname}>  
+        <Route path="/" element={<Navigate to="/gr" replace />} />
+        <Route path="/gr" element={<Group/>}/>
+
+        {/* <Route path="/" element={<Navigate to="/groupes/cours" replace /> } /> */}
+        <Route path="/groupes" element={<ContactClients />}/>
+
+        {/* <Route path="/login" element={<LoginScreen />} /> */}
+
+        <Route path='/groupes/ModifierGroup/:id' element={<ModifierGroup/>}/>
+        <Route path="/groupes/Ajoutergr" element={<Ajoutergr/>}/>
         {/* <Route path="/groupes" element={<ContactClients />}>
           <Route index path="" element={<Navigate to="/groupes/cours" replace />} />
           <Route index path="cours" element={<SendCourse />} />
           <Route index path="creds" element={<SendCred />} />
           {/* more subroutes ... */}
+    
+        <Route path="/participants" element={ <Participants /> }></Route>
+        <Route path="/Ajouter" element={ <Ajouter /> }></Route>
+        <Route path="/modifier/:id" element={ <Modifier /> }></Route>
+        
         {/* </Route> */} 
 
         <Route path="/history" element={userInfo ? <History /> : <Navigate to="/login" replace />}>

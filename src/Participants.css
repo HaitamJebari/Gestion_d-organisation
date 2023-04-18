@@ -1,6 +1,5 @@
 td {
     width: 500px;
-    text-align: center;   
 }
 th{
     width: 500px;
@@ -19,9 +18,5 @@ th{
    border-radius: 4px;
 }
 .buttA{
-    background-color: rgb(71, 237, 15);
-   margin: 4px;
-   padding: 7px;
-   border-radius: 4px;
-   width :530px;
+    text-align: center;
 }

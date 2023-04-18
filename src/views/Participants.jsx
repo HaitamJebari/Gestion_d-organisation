@@ -1,9 +1,10 @@
 import React, { useState, useEffect  } from "react";
 import { dataAll } from "../api/Particip";
 import {Link} from 'react-router-dom';
-import Delete from './Delete'
+import Button from 'react-bootstrap/Button';
+import Table from 'react-bootstrap/Table';
 import '../Participants.css'
-function Participants (itemId,props) {
+function Participants () {
     const[Participants,setparticipants]=useState([]);
     useEffect(()=>{
         const data = async () =>{
@@ -28,7 +29,7 @@ function Participants (itemId,props) {
 }
     return (
         <div>
-            <table>
+            <Table striped bordered >
                <thead>
                   <th>Nombre</th>
                   <th>Nom</th>
@@ -46,25 +47,25 @@ function Participants (itemId,props) {
                           <td>
 
                           <Link to={`/Modifier/${Participants.id}`}>
-                            <button className="buttM">Modifier</button>
+                             <Button variant="outline-primary">Modifier</Button>
                           </Link>
-
-                            <Delete onClick={()=>delt(Participants.id)}/>
                           </td>
-                          
+                          <td>
+                             <Button variant="outline-danger" onClick={()=>delt(Participants.id)}>Supprimer</Button>
+                          </td>
                       </tr>
                  ))}
                </tbody>
                <tfoot >
                   <tr>
-                  <td colSpan='4'>
+                  <td colSpan='6'>
                       <Link to={`/Ajouter`}>
-                           <button className="buttA">Ajouter Un Participant</button>
+                           <Button variant="outline-success" className="buttA">Ajouter un Participant</Button>{' '}
                       </Link>
                   </td>
                   </tr>
                </tfoot>
-            </table>
+            </Table>
         </div>
     );
 }

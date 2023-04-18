@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 import {Link} from 'react-router-dom'
+import Form from 'react-bootstrap/Form';
+import InputGroup from 'react-bootstrap/InputGroup'
+import Button from 'react-bootstrap/Button';
 import '../Ajouter.css'
 
 function Ajouter(){
@@ -39,17 +42,57 @@ function Ajouter(){
     }
     return(
         <>
-            <form action="" method="post">
-                  <label>Nombre :</label> 
-                <input type="text" name="" value={num} onChange={(e)=>{setnum(e.target.value)}}/>
-                  <label>Nom :</label> 
-                <input type="text" name="" value={nom} onChange={(e)=>{setnom(e.target.value)}}/>
-                  <label>Prenom :</label> 
-                <input type="text" name="" value={prenom} onChange={(e)=>{setprenom(e.target.value)}}/>
-                  <label>Groupe :</label> 
-                <input type="text" name="" value={groupe} onChange={(e)=>{setgroupe(e.target.value)}}/>
+         <form action="" method="post">
+            <InputGroup className="mb-3">
+               <InputGroup.Text id="inputGroup">
+               Nombre
+               </InputGroup.Text>
+            <Form.Control
+               aria-label="Nombre"
+               aria-describedby="inputGroup"
+               className="formControl"
+               value={num} 
+               onChange={(e)=>{setnum(e.target.value)}}
+            />
+            </InputGroup>                
+            <InputGroup className="mb-3">
+               <InputGroup.Text id="inputGroup">
+               Nom
+               </InputGroup.Text>
+            <Form.Control
+               aria-label="Nom"
+               aria-describedby="inputGroup"
+               className="formControl"
+               value={nom} 
+               onChange={(e)=>{setnom(e.target.value)}}
+            />
+            </InputGroup>                 
+            <InputGroup className="mb-3">
+               <InputGroup.Text id="inputGroup">
+               Prenom
+               </InputGroup.Text>
+            <Form.Control
+               aria-label="Prenom"
+               aria-describedby="inputGroup"
+               className="formControl"
+               value={prenom} 
+               onChange={(e)=>{setprenom(e.target.value)}}
+            />
+            </InputGroup>                 
+            <InputGroup className="mb-3">
+               <InputGroup.Text id="inputGroup">
+               Groupe
+               </InputGroup.Text>
+            <Form.Control
+               aria-label="Groupe"
+               aria-describedby="inputGroup"
+               id="formControl"
+               value={groupe} 
+               onChange={(e)=>{setgroupe(e.target.value)}}
+            />
+            </InputGroup>                 
                 <Link to={`/Participants`}>
-                        <button id="buttA" onClick={add}>Ajouter</button>
+                    <Button variant="outline-success" onClick={add}>Ajouter</Button>
                 </Link>
                 
             </form>

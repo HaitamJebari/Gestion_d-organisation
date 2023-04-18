@@ -8,7 +8,7 @@ import { useEffect } from "react";
 export const getOraganisation = async (setOrtabl)=>{
 
     try{
-        let rawData = await fetch('http://localhost:1337/api/organisations');
+        let rawData = await fetch('http://192.168.1.88:1337/api/organisations');
         let dataJson = await rawData.json();
         return setOrtabl(dataJson);
     

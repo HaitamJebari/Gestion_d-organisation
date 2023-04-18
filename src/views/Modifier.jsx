@@ -73,7 +73,7 @@ function Modifier() {
                     value={groupe}
                     onChange={(e)=>{setgroupe(e.target.value)}}
                 />
-                <Button as="Link" variant="success" className='mt-5 w-60' onClick={modify}>
+                <Button as="Link" variant="outline-success" className='mt-5 w-60' onClick={modify}>
                     Modifier
                 </Button>
             </form>

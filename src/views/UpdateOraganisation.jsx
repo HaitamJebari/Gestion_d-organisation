@@ -18,7 +18,7 @@ export default function UpdateOraganisation() {
   return (
     <div>
       <h1 className='mt-5'> MODIFICATION :</h1>
-    <Alert variant="warning" className='w-50 mt-3'>
+    <Alert variant="outline-warning" className='w-50 mt-3'>
         NB : si le nom de group deja exist dans le tableau cette chanmpe ne modifier pas 
     </Alert>
     <Form.Control
@@ -33,7 +33,7 @@ export default function UpdateOraganisation() {
         Value={defdescval}
         onChange={(e)=>setModificationdesc(e.target.value)}
       />
-      <Button as="Link" variant="success" className='mt-5 w-60' onClick={modifier} >
+      <Button as="Link" variant="outline-success" className='mt-5 w-60' onClick={modifier} >
 
            Modifier
       </Button>

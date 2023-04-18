@@ -18,7 +18,7 @@ export default function Ajouter() {
             
             
     <p className='mt-4'>Nom de group</p>
-    <Alert variant="warning" className='w-50 mt-3'>
+    <Alert variant="outline-warning" className='w-50 mt-3'>
         NB : si le nom de group deja exist dans le tableau cette groupe n'ajoute pas 
     </Alert>
       <Form.Control
@@ -28,7 +28,7 @@ export default function Ajouter() {
         value={groupName}
         onChange={(e)=>setGroupName(e.target.value)}
       />
-        <Button as="Link" variant="success" className='mt-5 w-60' onClick={ajouter}>
+        <Button as="Link" variant="outline-success" className='mt-5 w-60' onClick={ajouter}>
            Ajouter
         </Button>
 

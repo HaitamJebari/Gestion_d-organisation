@@ -31,7 +31,7 @@ export default function ShowGroups() {
         </tbody>
     </Table>
     <Link to="/organisation">
-        <Button as="Link" variant="success" className='ml-5'>
+        <Button as="Link" variant="outline-success" className='ml-5'>
             retour
         </Button>
     </Link>

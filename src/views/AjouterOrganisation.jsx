@@ -35,7 +35,7 @@ export default function AjouterOrganisation() {
         value={descorg}
         onChange={(e)=>setdescorg(e.target.value)}
       />
-        <Button as="Link" variant="success" className='mt-5 w-60' onClick={ajouterorg} >
+        <Button as="Link" variant="outline-success" className='mt-5 w-60' onClick={ajouterorg} >
            Ajouter
         </Button>
 

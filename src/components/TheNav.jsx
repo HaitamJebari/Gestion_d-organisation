@@ -27,13 +27,13 @@ const TheNav = () => {
           </div>
             <div className="flex space-x-4 ml-12">
               <CustomLink to="/gr" exact={false}>
-                Getion de groupes
+                Gestion des groupes
               </CustomLink>
               <CustomLink to="/organisation" exact={false}>
-                Getion de organisation
+                Gestion d'organisation
               </CustomLink>
               <CustomLink to="/participants" exact={false}>
-                Getion de participants
+                Gestion des participants
               </CustomLink>
               {/* <a href="https://digitaldevops.net/drupal/">
                 <div>Gérer les groupes</div>

@@ -35,17 +35,17 @@ export default function Organisation_liste() {
                             <td>{e.attributes.description}</td>
                             <td>
                             <Link to={`/UpdateOrganisation/${e.id}`}>             
-                            <Button as="Link" variant="primary">
-                                Modfier
+                            <Button as="Link" variant="outline-primary">
+                                Modifier
                             </Button>
                             </Link>
                             <Link to={`/showGroups/${e.id}`}>             
-                            <Button as="Link" variant="info" className='ml-5'>
+                            <Button as="Link" variant="outline-info" className='ml-5'>
                                 voir les groupes
                             </Button>
                             </Link>
-                                <Button as="Link" variant="danger" className='ml-5'onClick={()=>deleteorg(e.id)}>
-                                Supprimer
+                                <Button as="Link" variant="outline-danger" className='ml-5' onClick={()=>deleteorg(e.id)}>
+                                    Supprimer
                                 </Button>
 
                             </td>
@@ -55,7 +55,7 @@ export default function Organisation_liste() {
             }
         </tbody>
         <Link to='/AjouterOrganisation'>             
-           <Button as="Link" variant="success" className='mt-5'>
+           <Button as="Link" variant="outline-success" className='mt-5'>
            Ajouter Nouvelle organisation
         </Button>
         </Link>

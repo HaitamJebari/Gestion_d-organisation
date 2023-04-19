@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {Link} from 'react-router-dom'
 import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup'
@@ -8,21 +8,29 @@ import '../Ajouter.css'
 function Ajouter(){
     const [nom,setnom]=useState();
     const [prenom,setprenom]=useState();
-    const [groupe,setgroupe]=useState();
+    const [groups,setgroupes]=useState([]);
 
+    
+    useEffect(() => {
+        fetch("http://192.168.1.88:1337/api/groups")
+          .then((response) => response.json())
+          .then((data) => setgroupes(data))
+          .catch((error) => console.error(error));
+      }, []);
+    console.log(groups)
     function add (){
         let myheaders=new Headers();
         myheaders.append("Content-Type","application/json")
         let mydt={
-            "data":
-                {
-                "Nom":nom,
-                "Prenom":prenom
-            }
+                "data":
+                        {
+                        "Nom":nom,
+                        "Prenom":prenom
+                        }
                 }
 
                 console.log(mydt)
-        fetch('http://192.168.1.88:1337/api/participants' ,{ 
+        fetch('http://192.168.1.88:1337/api/participants'+'?populate=groups' ,{ 
                method: 'POST' , 
                headers:myheaders,
                body:JSON.stringify(mydt),
@@ -38,9 +46,11 @@ function Ajouter(){
            });
           
     }
+     
+      
     return(
         <>
-         <form action="" method="post">
+         <form action="" method="POST">
                            
             <InputGroup className="mb-3">
                <InputGroup.Text id="inputGroup">
@@ -64,21 +74,21 @@ function Ajouter(){
                onChange={(e)=>{setprenom(e.target.value)}}
             />
             </InputGroup>                 
+            
+
+
             <InputGroup className="mb-3">
                <InputGroup.Text id="inputGroup">
                Groupe
                </InputGroup.Text>
-            <Form.Control
-               value={groupe} 
-               onChange={(e)=>{setgroupe(e.target.value)}}
-            />
-            </InputGroup>   
-            <Form.Select aria-label="select">
-                    <option>Open this select menu</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
-            </Form.Select>             
+            <Form.Select aria-label="select" onChange={(e)=>setgroupes(e.target.value)}>
+                    {groups?.data?.map((group) => (
+                            <option key={group.id} value={group?.attributes?.group_name}>
+                                {group?.attributes?.group_name}
+                            </option>
+                    ))}    
+            </Form.Select> 
+            </InputGroup>             
                 <Link to={`/Participants`}>
                     <Button variant="outline-success" onClick={add}>Ajouter</Button>
                 </Link>

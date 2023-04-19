@@ -15,7 +15,7 @@ function Participants () {
     },[]);
     
     function delt(itemId){
-      fetch('http://192.168.1.88:1337/api/participants/'+itemId ,{ method: 'DELETE' })
+      fetch('http://192.168.1.88:1337/api/participants'+itemId+'?populate=groups' ,{ method: 'DELETE' })
       .then(response => {
         if (!response.ok) {
             throw new Error('Erreur lors de la suppression des données');
@@ -41,14 +41,14 @@ function Participants () {
                       <tr key={Participants.id}>
                           <td>{Participants.attributes.Nom}</td>
                           <td>{Participants.attributes.Prenom}</td>
-                          <td>{Participants.attributes.Groupe}</td>
+                          <td>{Participants?.attributes?.group?.attributes?.group_name}</td>
                           <td>
                           <Link to={`/modifier/${Participants.id}`}>
                                 <Button as="Link" variant="outline-primary">
                                     Modifier
                                 </Button>
                           </Link>
-                            <Button as="Link" variant="outline-danger" className='ml-5'onClick={()=>deleteorg(e.id)}>
+                            <Button as="Link" variant="outline-danger" className='ml-5'onClick={()=>delt(e.id)}>
                                 Supprimer
                             </Button>
                           </td>

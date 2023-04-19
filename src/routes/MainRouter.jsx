@@ -11,7 +11,7 @@ import Participants from "../views/Participants";
 import Ajoutergr from "../views/Ajoutergr";
 import Modifier from "../views/Modifier";
 import ModifierGroup from "../views/ModifierGroup";
-import Organisation_liste from "../views/organisation_liste";
+import Organisation_liste from "../views/Organisation_liste";
 import Ajouter from "../views/Ajouter";
 import AjouterOrganisation from "../views/AjouterOrganisation";
 import UpdateOraganisation from "../views/UpdateOraganisation";

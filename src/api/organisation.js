@@ -24,7 +24,7 @@ export const getOraganisation = async (setOrtabl)=>{
 export const deleteit = async (id)=>{
 
     try{    
-        let Fdeleteitem = await fetch('http://localhost:1337/api/organisations/'+id,{
+        let Fdeleteitem = await fetch('http://192.168.1.88:1337/api/organisations/'+id,{
             method : 'DELETE',
         });
         let deleteite = await Fdeleteitem.json();
@@ -35,6 +35,9 @@ export const deleteit = async (id)=>{
     }
 
 
+
+
+
 // for add : 
 
 export const ajouter = async (Norg,descorg)=>{
@@ -43,7 +46,7 @@ export const ajouter = async (Norg,descorg)=>{
     myHeaders.append("Content-Type", "application/json")
 try{
     let dataB = {"data":{"name": Norg , "description" : descorg}};
-    let rawData = await fetch('http://localhost:1337/api/organisations',{
+    let rawData = await fetch('http://192.168.1.88:1337/api/organisations',{
         method: 'POST',
         headers: myHeaders,
         body : JSON.stringify(dataB),
@@ -68,7 +71,7 @@ try{
 
  export const showV = (id,setDeftval,setDefdesctval)=>{
     useEffect(()=>{
-        fetch("http://localhost:1337/api/organisations/"+id).then((res)=>{
+        fetch("http://192.168.1.88:1337/api/organisations/"+id).then((res)=>{
             return res.json();
         }).then((res)=>{
             setDeftval(res.data.attributes.name);
@@ -85,7 +88,7 @@ try{
 export const modifiedval = async (id,modification,modificationdesc)=>{
     let bod = {"data": {"name": modification , "description":modificationdesc}};
 try{
-    let rawData = await fetch( 'http://localhost:1337/api/organisations/'+id,{
+    let rawData = await fetch( 'http://192.168.1.88:1337/api/organisations/'+id,{
         method: 'PUT',        
         headers: {
             'Content-Type': 'application/json'
@@ -114,7 +117,7 @@ try{
 
 export const titleshow = (id,setTitle)=>{
     useEffect(()=>{
-        fetch("http://localhost:1337/api/organisations/"+id).then((res)=>{
+        fetch("http://192.168.1.88:1337/api/organisations/"+id).then((res)=>{
             return res.json();
         }).then((res)=>{
             setTitle(res.data.attributes.name);
@@ -131,7 +134,7 @@ export const titleshow = (id,setTitle)=>{
 export const getgroups = async (id,setArrgroup)=>{
 
     try{
-        let rawData = await fetch('http://localhost:1337/api/organisations/'+id+'?populate=groups');
+        let rawData = await fetch('http://192.168.1.88:1337/api/organisations/'+id+'?populate=groups');
         let dataJson = await rawData.json();
         return setArrgroup(dataJson.data.attributes.groups);
     }catch (error) {

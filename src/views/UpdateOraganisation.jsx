@@ -1,9 +1,13 @@
 import React from 'react'
 import { useEffect, useState } from 'react'
-import { Alert, Button, Form } from 'react-bootstrap';
+import { Alert, Button, Collapse, Form } from 'react-bootstrap';
 import { useParams } from 'react-router-dom'
 import {showV,modifiedval} from '../api/organisation';
+import InputGroup from 'react-bootstrap/InputGroup'
 import {api} from "../api/Grou";
+import { FaSearch } from 'react-icons/fa';
+import '../Organisation_liste.css'
+
 
 export default function UpdateOraganisation() {
   // declaration de id :
@@ -20,6 +24,10 @@ export default function UpdateOraganisation() {
     const [test,setTest] = useState([]);
     const [testcheked,setTestcheked] = useState([]);
     const [restabl,setRestabl] = useState([]);
+    const [aff, setaff]=useState([])
+    const [input,setInput]=useState("")
+
+
 
 
     const [group,setGroup] = useState([])
@@ -40,7 +48,8 @@ export default function UpdateOraganisation() {
           }else{
               result.push({"id" : e.id , "group_name": e.attributes.group_name , "checked" : false})              
           }
-          setTest(result);    
+          setTest(result);  
+          setaff(result)  
           setTestcheked(oldN);
       })
       }
@@ -62,38 +71,73 @@ export default function UpdateOraganisation() {
 
     }
 
+
+
+
+    const fetchData = (value) => {
+      const results=test?.filter((g)=>{
+          return g && g.group_name && g.group_name.toLowerCase().includes(value);
+      });
+      setaff(results)
+  }
+  const handleChange=(value)=>{
+  setInput(value);
+  fetchData(value);
+  } 
+  
+
 return (
     <div>
-    <Button
-        onClick={() => setOpen(!open)}
-        aria-controls="example-collapse-text"
-        aria-expanded={open}
-        className='bg-danger'
-      >
-        NB!! 
-    </Button>
-    <Collapse in={open}>
-        <div className='bg-danger' id="collapse-text">
-        Si Nom de group deja exist .
-        Impossible de Modifier Le champ 
-        </div>
-    </Collapse>
-    <Form.Control
-        type="text"
-        className='w-50 mt-3'
-        Value={defval}
-        onChange={(e)=>setModification(e.target.value)}
-      />
-    <Form.Control
-        type="text"
-        className='w-50 mt-3'
-        Value={defdescval}
-        onChange={(e)=>setModificationdesc(e.target.value)}
-      />
-    {
-          test.map((e,index)=>{
+      <h1 className='mt-3'>Modification :</h1>
+
+
+
+
+<form action="" method="post">
+            <InputGroup id='input'>
+               <InputGroup.Text id="inputGroup">
+               Nom
+               </InputGroup.Text>
+            <Form.Control
+               aria-label="Nom"
+               aria-describedby="inputGroup"
+               Value={defval}
+               onChange={(e)=>setModification(e.target.value)}
+            />
+            </InputGroup>                 
+            <InputGroup id='input' className="mb-3">
+               <InputGroup.Text id="inputGroup">
+               Prenom
+               </InputGroup.Text>
+            <Form.Control
+               aria-label="Prenom"
+               aria-describedby="inputGroup"
+               Value={defdescval}
+               onChange={(e)=>setModificationdesc(e.target.value)}
+            />
+            </InputGroup>    
+             
+
+ </form>
+
+
+
+    <div className='search'>
+
+                            <div className="input-wrapper">
+                                <FaSearch id="search-icon"/>
+                                <input 
+                                    placeholder="Type to search groups..."
+                                    value={input}
+                                    onChange={(e)=>handleChange(e.target.value)}
+                                />
+                            </div>
+
+      <div className="checkdiv">
+        {
+          aff?.map((e,index)=>{
             return (
-              <div key={e.id}>
+              <div className='check2' key={e.id}>
                 <Form.Check
                   onChange={()=>change(index)}
                   checked = {e.checked}
@@ -106,9 +150,14 @@ return (
             ) 
           })
         }
-      <Button as="Link" variant="outline-success" className='mt-5 w-60' onClick={()=>modifier()} >
+      </div>
+
+
+        
+      <Button as="Link" variant="outline-success" id='mod' className='mt-5 w-60' onClick={()=>modifier()} >
            Modifier
       </Button>
+      </div>
     </div>
   )
 }

@@ -11,7 +11,7 @@ export default function ShowGroups() {
     getgroups(id,setArrgroup);
   return (
     <div>
-        <h1 className='mt-3'>the groups of {title}</h1>
+        <h1 className='mt-3'>The groups of {title}</h1>
         <Table striped bordered hover className='mt-2'>
         <thead>
         <tr className=''>

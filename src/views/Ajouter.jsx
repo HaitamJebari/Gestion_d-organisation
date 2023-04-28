@@ -62,6 +62,8 @@ function Ajouter(){
         fetchData(value);
     }  
 
+    
+
     function add (nom,prenom,tel){
         let myheaders=new Headers();
         myheaders.append("Content-Type","application/json")

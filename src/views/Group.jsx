@@ -43,7 +43,7 @@ export default function Group() {
                             <td>
                             <Link to={`/ModifierGroup/${e.id}`}>             
                             <Button as="Link" variant="outline-primary">
-                                Modfier
+                                Modifier
                             </Button>
                             </Link>
                             {/* <Link to={`/api/groups/${e.id}`}> */}

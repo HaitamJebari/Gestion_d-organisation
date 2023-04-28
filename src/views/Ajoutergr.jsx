@@ -18,7 +18,7 @@ export default function Ajouter() {
             
             
     <p className='mt-4'>Nom de group</p>
-    <Alert variant="outline-warning" className='w-50 mt-3'>
+    <Alert variant="warning" className='w-50 mt-3'>
         NB : si le nom de group deja exist dans le tableau cette groupe n'ajoute pas 
     </Alert>
       <Form.Control

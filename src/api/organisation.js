@@ -52,7 +52,7 @@ try{
                     "groups": {
                         "connect" : idgr
 }}}
-    let rawData = await fetch("http://localhost:1337/api/organisations?populate=groups",{
+    let rawData = await fetch("http://192.168.1.88:1337/api/organisations?populate=groups",{
         method: 'POST',
         headers: myHeaders,
         body : JSON.stringify(dataB),
@@ -79,7 +79,7 @@ try{
  export const showV = async (id)=>{
 
 try{
-    let rawData = await fetch("http://localhost:1337/api/organisations/"+id+"?populate=groups",{
+    let rawData = await fetch("http://192.168.1.88:1337/api/organisations/"+id+"?populate=groups",{
         method: 'GET',
         
     });
@@ -100,7 +100,7 @@ try{
 export const modifiedval = async (id,modification,modificationdesc,filt)=>{
     let bod = {"data": {"name": modification , "description":modificationdesc , "groups": {"set" : filt}}};
 try{
-    let rawData = await fetch( 'http://localhost:1337/api/organisations/'+id+'?populate=groups',{
+    let rawData = await fetch( 'http://192.168.1.88:1337/api/organisations/'+id+'?populate=groups',{
         method: 'PUT',        
         headers: {
             'Content-Type': 'application/json'

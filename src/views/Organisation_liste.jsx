@@ -3,6 +3,8 @@ import { Button, Table } from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Link } from 'react-router-dom';
 import { getOraganisation,deleteit } from '../api/organisation';
+import '../Organisation_liste.css';
+
 
 
 
@@ -14,14 +16,13 @@ export default function Organisation_liste() {
         deleteit(id);
     }
   return (
-    <div>
+    <div className='table'>
          <Table striped bordered hover>
         <thead>
         <tr className=''>
-          <th className='w-7'>ID</th>
-          <th>name</th>
-          <th>description</th>
-          <th>action</th>
+          <th>Nom</th>
+          <th>Description</th>
+          <th>Action</th>
         </tr>
         </thead>
         <tbody>
@@ -30,21 +31,20 @@ export default function Organisation_liste() {
                     // console.log(e);
                     return (
                         <tr key={e.id}>
-                            <td>{e.id}</td>
                             <td>{e.attributes.name}</td>
                             <td>{e.attributes.description}</td>
                             <td>
                             <Link to={`/UpdateOrganisation/${e.id}`}>             
-                            <Button as="Link" variant="outline-primary">
+                            <Button className='Butt' as="Link" variant="outline-primary">
                                 Modifier
                             </Button>
                             </Link>
                             <Link to={`/showGroups/${e.id}`}>             
-                            <Button as="Link" variant="outline-info" className='ml-5'>
-                                voir les groupes
+                            <Button className='Butt' as="Link" variant="outline-info">
+                                Groupes
                             </Button>
                             </Link>
-                                <Button as="Link" variant="outline-danger" className='ml-5'onClick={()=>deleteorg(e.id)}>
+                                <Button as="Link" className='Butt' variant="outline-danger" onClick={()=>deleteorg(e.id)}>
                                 Supprimer
                                 </Button>
 

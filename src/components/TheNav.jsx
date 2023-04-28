@@ -4,6 +4,7 @@ import Logo from "../assets/logo.svg";
 import { useContext } from "react";
 import { UserContext } from "../context/UserContext";
 import { openBackOffice } from "../api/Core";
+import './TheNav.css'
 const TheNav = () => {
   const { userInfo, setUserInfo } = useContext(UserContext);
   const logOutAction = () => {
@@ -18,14 +19,15 @@ const TheNav = () => {
     }
   };
   return (
-    <div className="mx-auto px-2 sm:px-6 lg:px-8 shadow-md bg-gray-50">
+    <div className="navbar row align-items-start mx-auto px-2 sm:px-6 lg:px-8 shadow-md bg-gray-50">
       <div className="relative flex items-center justify-between h-16">
-        <div className="absolute inset-y-0 left-0 flex items-center sm:hidden"></div>
-        <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
-          <div className="flex-shrink flex items-center">
+      <div className="flex-shrink flex items-center ">
             <Link to='/'><img src={Logo} alt="logo" className="w-16"></img></Link> 
-          </div>
-            <div className="flex space-x-4 ml-12">
+      </div>
+        <div className="nav inset-y-0 left-0 flex items-center sm:hidden"></div>
+        <div className="flex-1 flex  items-center justify-center sm:items-stretch sm:justify-center">
+          
+            <div className="flex space-x-12 ml-20">
               <CustomLink to="/gr" exact={false}>
                 Gestion des groupes
               </CustomLink>
@@ -44,7 +46,14 @@ const TheNav = () => {
           <div className="flex-shrink flex items-center space-x-4">
             <div
               onClick={openBack}
-              className="cursor-pointer px-3 py-2 uppercase text-indigo-600 text-lg font-semibold bg-gradient-to-t from-blue-100 to-blue-200 bg-no-repeat [background-position:0_88%] [background-size:100%_0.2em]  motion-safe:transition-all motion-safe:duration-200 hover:[background-size:100%_100%]  hover:text-indigo-800"
+              className="cursor-pointer
+               px-3 py-2 
+               uppercase text-indigo-600 text-lg 
+               font-semibold bg-gradient-to-t 
+               from-blue-100 to-blue-200 bg-no-repeat 
+               [background-position:0_88%] [background-size:100%_0.2em]  
+               motion-safe:transition-all motion-safe:duration-200 hover:[background-size:100%_100%]  
+               hover:text-indigo-800"
             >
               <div>Ouvrir Dashboard</div>
             </div>

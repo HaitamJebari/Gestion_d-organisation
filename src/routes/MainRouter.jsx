@@ -17,6 +17,7 @@ import AjouterOrganisation from "../views/AjouterOrganisation";
 import UpdateOraganisation from "../views/UpdateOraganisation";
 import ShowGroups from "../views/showGroups";
 import MainPage from "../views/MainPage";
+import Groupes from "../views/Groupes";
 const MainRouter = () => {
   const { userInfo } = useContext(UserContext);
 
@@ -39,6 +40,7 @@ const MainRouter = () => {
 
         <Route path="/participants" element={ <Participants /> }></Route>
         <Route path="/Ajouter" element={ <Ajouter /> }></Route>
+        <Route path="/Groupes/:id" element={ <Groupes/> }></Route>
         <Route path="/modifier/:id" element={ <Modifier /> }></Route>
 
       {/* <Routes location={location} key={location.pathname}>   */}

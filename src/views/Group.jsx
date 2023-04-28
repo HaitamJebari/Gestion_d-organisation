@@ -23,11 +23,11 @@ export default function Group() {
     }
 
   return (
-    <div>
+    <div className='table'>
          <Table striped bordered hover>
         <thead>
-        <tr className=''>
-          <th className='w-7'>ID</th>
+        <tr>
+          <th>ID</th>
           <th>GROUPS</th>
           <th>ACTION</th>
         </tr>
@@ -47,7 +47,7 @@ export default function Group() {
                             </Button>
                             </Link>
                             {/* <Link to={`/api/groups/${e.id}`}> */}
-                                <Button as="Link" variant="outline-danger" className='ml-5'onClick={()=>deleteItem(e.id)}>
+                                <Button as="Link" variant="outline-danger"  onClick={()=>deleteItem(e.id)}>
                                 Supprimer
                                 </Button>
                             {/* </Link> */}
@@ -60,7 +60,7 @@ export default function Group() {
             }
         </tbody>
         <Link to='/Ajoutergr'>             
-           <Button as="Link" variant="outline-success" className='mt-5'>
+           <Button as="Link" variant="outline-success" className='ajt'>
            Ajouter Nouvelle Group
         </Button>
         </Link>

@@ -3,52 +3,65 @@ import { dataAll } from "../api/Particip";
 import {Link} from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import Table from 'react-bootstrap/Table';
-import '../Participants.css'
+import '../Participants.css';
 function Participants () {
     const[Participants,setparticipants]=useState([]);
+
+
+
+
     useEffect(()=>{
         const data = async () =>{
             let dt = await dataAll();
             setparticipants(dt)
         }
         data();
+
     },[]);
+
     
-    function delt(itemId){
-      fetch('http://192.168.1.88:1337/api/participants'+itemId+'?populate=groups' ,{ method: 'DELETE' })
+    
+    const delt = (itemId) =>{
+      fetch(`http://192.168.1.88:1337/api/participants/${itemId}`+`?populate=group` ,{ method: 'DELETE' })
       .then(response => {
         if (!response.ok) {
             throw new Error('Erreur lors de la suppression des données');
         }
-
-        setparticipants(Participants.data.filter(item => item.id !== itemId));
+        let a = Participants.data.filter(item => item.id !== itemId)
+        setparticipants({data:a});
        })
         .catch(error => {
            console.error(error);
        });
 }
     return (
-        <div>
-         <Table striped bordered hover>
+        <>
+        <div className="table">
+         <Table striped bordered hover >
                <thead>
                   <th>Nom</th>
                   <th>Prenom</th>
-                  <th>Groupe</th>
+                  <th>Telefone</th>
                   <th>Action</th>
                </thead>
                <tbody>
-                  {Participants?.data?.map(Participants => (
-                      <tr key={Participants.id}>
+                  {Participants?.data?.map((Participants) => (
+                      <tr key={Participants?.attributes.id}>
                           <td>{Participants.attributes.Nom}</td>
                           <td>{Participants.attributes.Prenom}</td>
-                          <td>{Participants?.attributes?.group?.attributes?.group_name}</td>
+                          <td>{Participants.attributes.Tel}</td>
                           <td>
                           <Link to={`/modifier/${Participants.id}`}>
-                                <Button as="Link" variant="outline-primary">
+                                <Button as="Link" id="Button" variant="outline-primary">
                                     Modifier
                                 </Button>
                           </Link>
-                            <Button as="Link" variant="outline-danger" className='ml-5'onClick={()=>delt(e.id)}>
+                          <Link to={`/Groupes/${Participants.id}`}>
+                                <Button as="Link" id="Button" variant="outline-info">
+                                    Groupes
+                                </Button>
+                          </Link>
+                            <Button as="Link" id="Button" variant="outline-danger" className='ml-5' onClick={()=>delt(Participants.id)}>
                                 Supprimer
                             </Button>
                           </td>
@@ -57,11 +70,12 @@ function Participants () {
                </tbody>
             </Table>
             <Link to={`/Ajouter`}>
-                <Button as="Link" variant="outline-success" className='mt-5 ml-5' >
-                    Ajouter Nouvelle Participant
+                <Button as="Link" variant="outline-success" className='ajt' >
+                    Ajouter un Nouveau Participant
                 </Button>
             </Link>
         </div>
+        </>
     );
 }
 export default Participants;

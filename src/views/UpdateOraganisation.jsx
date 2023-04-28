@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Alert, Button, Form } from 'react-bootstrap';
 import { useParams } from 'react-router-dom'
 import {showV,modifiedval} from '../api/organisation';
+import Collapse from 'react-bootstrap/Collapse';
 export default function UpdateOraganisation() {
     const {id } = useParams();
 
@@ -9,6 +10,8 @@ export default function UpdateOraganisation() {
     const [modification,setModification] = useState();
     const [modificationdesc,setModificationdesc] = useState();
     const [defdescval,setDefdesctval] = useState();
+    const [open, setOpen] = useState(false);
+
     showV(id,setDeftval,setDefdesctval);
 
     const modifier =()=>{
@@ -17,10 +20,20 @@ export default function UpdateOraganisation() {
 
   return (
     <div>
-      <h1 className='mt-5'> MODIFICATION :</h1>
-    <Alert variant="outline-warning" className='w-50 mt-3'>
-        NB : si le nom de group deja exist dans le tableau cette chanmpe ne modifier pas 
-    </Alert>
+    <Button
+        onClick={() => setOpen(!open)}
+        aria-controls="example-collapse-text"
+        aria-expanded={open}
+        className='bg-danger'
+      >
+        NB!! 
+    </Button>
+    <Collapse in={open}>
+        <div className='bg-danger' id="collapse-text">
+        Si Nom de group deja exist .
+        Impossible de Modifier Le champ 
+        </div>
+    </Collapse>
     <Form.Control
         type="text"
         className='w-50 mt-3'

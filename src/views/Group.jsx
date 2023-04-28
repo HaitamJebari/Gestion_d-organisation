@@ -43,11 +43,11 @@ export default function Group() {
                             <td>
                             <Link to={`/ModifierGroup/${e.id}`}>             
                             <Button as="Link" variant="outline-primary">
-                                Modifier
+                                Modfier
                             </Button>
                             </Link>
                             {/* <Link to={`/api/groups/${e.id}`}> */}
-                                <Button as="Link" variant="outline-danger"  onClick={()=>deleteItem(e.id)}>
+                                <Button as="Link" variant="outline-danger" className='ml-5'onClick={()=>deleteItem(e.id)}>
                                 Supprimer
                                 </Button>
                             {/* </Link> */}
@@ -60,7 +60,7 @@ export default function Group() {
             }
         </tbody>
         <Link to='/Ajoutergr'>             
-           <Button as="Link" variant="outline-success" className='ajt'>
+           <Button as="Link" variant="outline-success" className='mt-5 ml-5'>
            Ajouter Nouvelle Group
         </Button>
         </Link>

@@ -44,8 +44,8 @@ export default function Organisation_liste() {
                                 voir les groupes
                             </Button>
                             </Link>
-                                <Button as="Link" variant="outline-danger" className='ml-5' onClick={()=>deleteorg(e.id)}>
-                                    Supprimer
+                                <Button as="Link" variant="outline-danger" className='ml-5'onClick={()=>deleteorg(e.id)}>
+                                Supprimer
                                 </Button>
 
                             </td>

@@ -31,6 +31,7 @@ export default function ModifierGroup() {
         onChange={(e)=>setModifs(e.target.value)}
       />
       <Button as="Link" variant="outline-success" className='mt-5 w-60' onClick={Modifier}>
+
            Modifier
       </Button>
 

@@ -1,24 +1,68 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
+import { useEffect, useState } from 'react'
 import { Alert, Button, Form } from 'react-bootstrap';
 import { useParams } from 'react-router-dom'
 import {showV,modifiedval} from '../api/organisation';
-import Collapse from 'react-bootstrap/Collapse';
+import {api} from "../api/Grou";
+
 export default function UpdateOraganisation() {
+  // declaration de id :
+
     const {id } = useParams();
+
+  //declaration useState :
 
     const [defval,setDeftval] = useState();
     const [modification,setModification] = useState();
     const [modificationdesc,setModificationdesc] = useState();
     const [defdescval,setDefdesctval] = useState();
-    const [open, setOpen] = useState(false);
+    const [ischeck,setIscheck] = useState([]);
+    const [test,setTest] = useState([]);
+    const [testcheked,setTestcheked] = useState([]);
+    const [restabl,setRestabl] = useState([]);
 
-    showV(id,setDeftval,setDefdesctval);
+
+    const [group,setGroup] = useState([])
+    useEffect(()=>{
+      const callapi = async () =>{
+          let data = await api();
+          let res = await showV(id);
+          setGroup(data.data);
+          setDeftval(res.data.attributes.name);
+          setDefdesctval(res.data.attributes.description);
+          setIscheck(res.data.attributes.groups.data);
+          let result = []
+          let oldN = []
+          data?.data?.map((e) => {
+            if (res?.data?.attributes?.groups?.data?.find((i)=>i.id === e.id)){
+              result.push({"id" : e.id , "group_name": e.attributes.group_name , "checked" : true });
+              oldN.push(e.id);
+          }else{
+              result.push({"id" : e.id , "group_name": e.attributes.group_name , "checked" : false})              
+          }
+          setTest(result);    
+          setTestcheked(oldN);
+      })
+      }
+      callapi();
+      
+    },[])
+
+
+    const change = (index) =>{
+      const Ntab = [...test];
+      Ntab[index].checked = !Ntab[index].checked;
+      setTest(Ntab);
+    }
+    // method for the modifier button insite it has method of operation :
 
     const modifier =()=>{
-        modifiedval(id,modification,modificationdesc);
+      let filt = test.filter((e)=>e.checked == true)
+      modifiedval(id,modification,modificationdesc,filt); 
+
     }
 
-  return (
+return (
     <div>
     <Button
         onClick={() => setOpen(!open)}
@@ -46,8 +90,23 @@ export default function UpdateOraganisation() {
         Value={defdescval}
         onChange={(e)=>setModificationdesc(e.target.value)}
       />
-      <Button as="Link" variant="outline-success" className='mt-5 w-60' onClick={modifier} >
-
+    {
+          test.map((e,index)=>{
+            return (
+              <div key={e.id}>
+                <Form.Check
+                  onChange={()=>change(index)}
+                  checked = {e.checked}
+                  value={e.group_name}
+                  id={e.id}
+                  type="switch"
+                  label={e.group_name}
+                />  
+              </div>
+            ) 
+          })
+        }
+      <Button as="Link" variant="outline-success" className='mt-5 w-60' onClick={()=>modifier()} >
            Modifier
       </Button>
     </div>

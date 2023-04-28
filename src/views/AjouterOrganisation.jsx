@@ -1,15 +1,50 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Alert, Button, Form } from 'react-bootstrap'
 import {ajouter} from '../api/organisation';
+import {api} from '../api/Grou';
+import Select from 'react-select';
 export default function AjouterOrganisation() {
     const [Norg,setNorg] = useState('')
     const [descorg,setdescorg] = useState()
+    const [idgr,setIdgr] = useState([])
 
 
-    const [choose,setChoose] = useState()
+    // ajouter organisation 
+
     const ajouterorg = ()=>{
-        ajouter(Norg,descorg)
+        ajouter(Norg,descorg,idgr)
     }
+
+    // afficher le checkbox avec les valeur de table group  
+
+    
+    const [grtab,setGrtab] = useState([])
+    useEffect(()=>{
+      const callapi = async () =>{
+          let data = await api();
+          setGrtab(data);
+      }
+      
+      callapi()
+  },[])
+
+  // put the cheched chaeckboxes to an array 
+  
+let datachange = (e,id)=>{
+  const activdata = e.target.checked ;
+  const ide = e.target.id;
+  if(activdata == true){
+
+    setIdgr([...idgr,ide]);
+
+  
+  }else{
+    let o = idgr.filter((a)=> a != ide)
+    setIdgr(o)
+
+  }}
+
+
 
 
 
@@ -35,7 +70,25 @@ export default function AjouterOrganisation() {
         value={descorg}
         onChange={(e)=>setdescorg(e.target.value)}
       />
-        <Button as="Link" variant="outline-success" className='mt-5 w-60' onClick={ajouterorg} >
+<h3 className='mt-3'>selectioner les groups</h3>
+        {
+          grtab?.data?.map((e)=>{
+            return (
+              <div key={e.id}>
+                <Form.Check
+                  value={e?.attributes?.group_name}
+                  id={e.id}
+                  type="switch"
+                  label={e?.attributes?.group_name}
+                  onChange={(e)=>datachange(e,e.id)}
+                />  
+              </div>
+            ) 
+          })
+        }
+
+<br />
+        <Button as="Link" variant="success" className='mt-5 w-60' onClick={ajouterorg} >
            Ajouter
         </Button>
 

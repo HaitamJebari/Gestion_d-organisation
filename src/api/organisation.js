@@ -37,13 +37,19 @@ export const deleteit = async (id)=>{
 
 // for add : 
 
-export const ajouter = async (Norg,descorg)=>{
+export const ajouter = async (Norg,descorg,idgr)=>{
 
     let myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json")
 try{
-    let dataB = {"data":{"name": Norg , "description" : descorg}};
-    let rawData = await fetch('http://localhost:1337/api/organisations',{
+    let dataB = {
+        "data": {
+                "name": Norg,
+                "description": descorg,
+                    "groups": {
+                        "connect" : idgr
+}}}
+    let rawData = await fetch("http://localhost:1337/api/organisations?populate=groups",{
         method: 'POST',
         headers: myHeaders,
         body : JSON.stringify(dataB),
@@ -52,6 +58,7 @@ try{
     });
 
     let cdata = await rawData.json();
+    console.log(cdata)
     if (cdata.data === null){
         alert('ce organisation est deja exists dans le tableau')
     }else{
@@ -66,26 +73,31 @@ try{
 
 //show value for update :
 
- export const showV = (id,setDeftval,setDefdesctval)=>{
-    useEffect(()=>{
-        fetch("http://localhost:1337/api/organisations/"+id).then((res)=>{
-            return res.json();
-        }).then((res)=>{
-            setDeftval(res.data.attributes.name);
-            setDefdesctval(res.data.attributes.description);
-        }).catch( (error)=> {
-            console.warn(error);
-            return 'walo';
-        })
-    })
+ export const showV = async (id)=>{
+
+try{
+    let rawData = await fetch("http://localhost:1337/api/organisations/"+id+"?populate=groups",{
+        method: 'GET',
+        
+    });
+
+    let res = await rawData.json();
+    return res;
+
+
+}catch (error) {
+    console.warn(error);
+    return 'walo';
 }
+}
+
 
 // for update :
 
-export const modifiedval = async (id,modification,modificationdesc)=>{
-    let bod = {"data": {"name": modification , "description":modificationdesc}};
+export const modifiedval = async (id,modification,modificationdesc,filt)=>{
+    let bod = {"data": {"name": modification , "description":modificationdesc , "groups": {"set" : filt}}};
 try{
-    let rawData = await fetch( 'http://localhost:1337/api/organisations/'+id,{
+    let rawData = await fetch( 'http://localhost:1337/api/organisations/'+id+'?populate=groups',{
         method: 'PUT',        
         headers: {
             'Content-Type': 'application/json'
@@ -138,6 +150,6 @@ export const getgroups = async (id,setArrgroup)=>{
         console.warn(error);
         return 'walo';
     }
-    }
+}
 
 

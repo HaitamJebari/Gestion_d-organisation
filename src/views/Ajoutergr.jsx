@@ -28,7 +28,7 @@ export default function Ajouter() {
         value={groupName}
         onChange={(e)=>setGroupName(e.target.value)}
       />
-        <Button as="Link" variant="success" className='mt-5 w-60' onClick={ajouter}>
+        <Button as="Link" variant="outline-success" className='mt-5 w-60' onClick={ajouter}>
            Ajouter
         </Button>
 

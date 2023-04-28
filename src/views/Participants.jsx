@@ -38,7 +38,7 @@ function Participants () {
                   <th>Action</th>
                </thead>
                <tbody>
-                  {Participants?.data?.map(Participants => (
+                  {Participants?.data?.map((Participants) => (
                       <tr key={Participants.id}>
                           <td>{Participants.attributes.Nombre}</td>
                           <td>{Participants.attributes.Nom}</td>
@@ -46,11 +46,11 @@ function Participants () {
                           <td>{Participants.attributes.Groupe}</td>
                           <td>
                           <Link to={`/modifier/${Participants.id}`}>
-                                <Button as="Link" variant="primary">
+                                <Button as="Link" variant="outline-primary">
                                     Modifier
                                 </Button>
                           </Link>
-                            <Button as="Link" variant="danger" className='ml-5'onClick={()=>deleteorg(e.id)}>
+                            <Button as="Link" variant="outline-danger" className='ml-5'onClick={()=>delt(Participants.id)}>
                                 Supprimer
                             </Button>
                           </td>
@@ -59,7 +59,7 @@ function Participants () {
                </tbody>
             </Table>
             <Link to={`/Ajouter`}>
-                <Button as="Link" variant="success" className='mt-5 ml-5' >
+                <Button as="Link" variant="outline-success" className='mt-5 ml-5' >
                     Ajouter Nouvelle Participant
                 </Button>
             </Link>

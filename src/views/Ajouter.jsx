@@ -62,7 +62,7 @@ function Ajouter(){
         fetchData(value);
     }  
 
-    
+
 
     function add (nom,prenom,tel){
         let myheaders=new Headers();
@@ -103,6 +103,10 @@ function Ajouter(){
     
     return(
         <>
+         <div className="Title">
+            <h1>AJOUTER UN NOUVEAU PARTICIPANT</h1>
+         </div>
+            
          <form action="" method="POST">
                            
             <InputGroup className="mb-6">

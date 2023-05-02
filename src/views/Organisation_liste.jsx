@@ -16,6 +16,15 @@ export default function Organisation_liste() {
         deleteit(id);
     }
   return (
+    <>
+        <div className="Title">
+           <h1>Gestion des d'organisation</h1>
+        </div>
+    <Link to='/AjouterOrganisation'>             
+           <Button as="Link" variant="outline-success" className='ajt'>
+           Ajouter Une Nouvelle Organisation
+        </Button>
+    </Link>
     <div className='table'>
          <Table striped bordered hover>
         <thead>
@@ -54,12 +63,9 @@ export default function Organisation_liste() {
                 })
             }
         </tbody>
-        <Link to='/AjouterOrganisation'>             
-           <Button as="Link" variant="outline-success" className='mt-5'>
-           Ajouter Nouvelle organisation
-        </Button>
-        </Link>
+        
     </Table>
     </div>
+    </>
   )
 }

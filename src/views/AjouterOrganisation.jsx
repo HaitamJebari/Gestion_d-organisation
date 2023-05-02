@@ -72,8 +72,10 @@ fetchData(value);
     <div>
             
             
-                <h1 className='mt-4'>Nom de Organisation</h1>
-                
+        <div className="Title">
+            <h1>AJOUTER UNE NOUVELLE ORGANISATION</h1>
+        </div>
+                            
        <form action="" method="post">
             <InputGroup id='input'>
                <InputGroup.Text id="inputGroup">

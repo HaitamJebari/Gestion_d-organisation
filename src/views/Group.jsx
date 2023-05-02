@@ -23,6 +23,15 @@ export default function Group() {
     }
 
   return (
+    <>
+        <div className="Title">
+           <h1>Gestion des Groupes</h1>
+        </div>
+    <Link to='/Ajoutergr'>             
+           <Button as="Link" variant="outline-success" className='ajt'>
+           Ajouter un Nouveau Groupe
+        </Button>
+    </Link>
     <div className='table'>
          <Table striped bordered hover>
         <thead>
@@ -59,12 +68,9 @@ export default function Group() {
                 })
             }
         </tbody>
-        <Link to='/Ajoutergr'>             
-           <Button as="Link" variant="outline-success" className='mt-5 ml-5'>
-           Ajouter Nouvelle Group
-        </Button>
-        </Link>
+        
     </Table>
     </div>
+    </>
   )
 }

@@ -1,3 +1,22 @@
+.Title{
+    margin-top: 25px;
+}
+.Title h1 {
+    text-align:center;
+    text-transform:uppercase;
+    font-size:26px; letter-spacing:1px;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    grid-template-rows: 16px 0;
+    grid-gap: 22px;
+  }
+  
+  .Title h1:after,.Title h1:before {
+    content: " ";
+    display: block;
+    border-bottom: 2px solid #ccc;
+  }
+
 td {
     width: 500px;
 }
@@ -18,4 +37,14 @@ th{
 #Button{
 width: 95px;
 margin-left: 3px;
+}
+#mySidebar{
+    width: 25%;
+    width: 200px;
+}
+#cnt{
+    margin-left: 25%;
+}
+#main{
+    margin-left: 200px;
 }

@@ -15,9 +15,12 @@ export default function Ajouter() {
 
   return (
     <div>
+        <div className="Title">
+            <h1>AJOUTER UN NOUVEAU GROUPE</h1>
+        </div>
+                 
             
-            
-    <p className='mt-4'>Nom de group</p>
+    <p className='mt-4'>Nom de groupe</p>
     <Alert variant="warning" className='w-50 mt-3'>
         NB : si le nom de group deja exist dans le tableau cette groupe n'ajoute pas 
     </Alert>

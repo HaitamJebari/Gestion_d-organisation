@@ -4,6 +4,7 @@ import Logo from "../assets/logo.svg";
 import { useContext } from "react";
 import { UserContext } from "../context/UserContext";
 import { openBackOffice } from "../api/Core";
+import {w3_open , w3_close} from '../api/Particip'
 import './TheNav.css'
 const TheNav = () => {
   const { userInfo, setUserInfo } = useContext(UserContext);
@@ -19,15 +20,13 @@ const TheNav = () => {
     }
   };
   return (
-    <div className="navbar row align-items-start mx-auto px-2 sm:px-6 lg:px-8 shadow-md bg-gray-50">
-      <div className="relative flex items-center justify-between h-16">
-      <div className="flex-shrink flex items-center ">
-            <Link to='/'><img src={Logo} alt="logo" className="w-16"></img></Link> 
-      </div>
-        <div className="nav inset-y-0 left-0 flex items-center sm:hidden"></div>
-        <div className="flex-1 flex  items-center justify-center sm:items-stretch sm:justify-center">
-          
-            <div className="flex space-x-12 ml-20">
+    <>
+
+       <div className="w3-sidebar w3-bar-block w3-collapse w3-card" id="mySidebar">
+       <button class="w3-bar-item w3-button w3-hide-large"
+            onclick={w3_close()}> Close </button>
+          <Link to='/'><img src={Logo} alt="logo" className="w-16"></img></Link> 
+           <div className="flex space-x-12 ml-20">
               <CustomLink to="/gr" exact={false}>
                 Gestion des groupes
               </CustomLink>
@@ -42,6 +41,13 @@ const TheNav = () => {
               </a> */}
             </div>
         </div>
+
+
+        <div className="w3-main" id='main'>
+              <div className="w3-teal">
+                 <button className="w3-button w3-teal w3-xlarge" onclick={w3_open()}>XXX</button>
+                   <div className="w3-container" id='cnt'>
+
         {userInfo ? (
           <div className="flex-shrink flex items-center space-x-4">
             <div
@@ -75,8 +81,11 @@ const TheNav = () => {
         ) : (
           <></>
         )}
-      </div>
-    </div>
+         </div>
+         </div>
+         </div>
+    
+    </>
   );
 };
 export default TheNav;

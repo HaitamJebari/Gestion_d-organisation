@@ -36,6 +36,17 @@ function Participants () {
 }
     return (
         <>
+        <div id="cnt">
+
+        <div className="Title">
+            <h1>Gestion des Participants</h1>
+        </div>
+            
+            <Link to={`/Ajouter`}>
+                <Button as="Link" variant="outline-success" className='ajt' >
+                    Ajouter un Nouveau Participant
+                </Button>
+            </Link>
         <div className="table">
          <Table striped bordered hover >
                <thead>
@@ -69,11 +80,8 @@ function Participants () {
                  ))}
                </tbody>
             </Table>
-            <Link to={`/Ajouter`}>
-                <Button as="Link" variant="outline-success" className='ajt' >
-                    Ajouter un Nouveau Participant
-                </Button>
-            </Link>
+            
+        </div>
         </div>
         </>
     );

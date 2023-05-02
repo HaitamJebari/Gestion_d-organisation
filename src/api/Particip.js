@@ -31,3 +31,10 @@ export const Getgroupes = async (id) =>{
         return 'ERROR'
     }
 }
+
+export const w3_open = async () => {
+    document.getElementById("mySidebar").style.display = "block";
+}
+export const w3_close = async () => {
+    document.getElementById("mySidebar").style.display = "none";
+}

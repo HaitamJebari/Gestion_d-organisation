@@ -4,7 +4,6 @@ import Logo from "../assets/logo.svg";
 import { useContext } from "react";
 import { UserContext } from "../context/UserContext";
 import { openBackOffice } from "../api/Core";
-import {w3_open , w3_close} from '../api/Particip'
 import './TheNav.css'
 const TheNav = () => {
   const { userInfo, setUserInfo } = useContext(UserContext);
@@ -23,8 +22,7 @@ const TheNav = () => {
     <>
 
        <div className="w3-sidebar w3-bar-block w3-collapse w3-card" id="mySidebar">
-       <button class="w3-bar-item w3-button w3-hide-large"
-            onclick={w3_close()}> Close </button>
+       <button class="w3-bar-item w3-button w3-hide-large"> Close </button>
           <Link to='/'><img src={Logo} alt="logo" className="w-16"></img></Link> 
            <div className="flex space-x-12 ml-20">
               <CustomLink to="/gr" exact={false}>
@@ -45,7 +43,7 @@ const TheNav = () => {
 
         <div className="w3-main" id='main'>
               <div className="w3-teal">
-                 <button className="w3-button w3-teal w3-xlarge" onclick={w3_open()}>XXX</button>
+                 <button className="w3-button w3-teal w3-xlarge" >XXX</button>
                    <div className="w3-container" id='cnt'>
 
         {userInfo ? (

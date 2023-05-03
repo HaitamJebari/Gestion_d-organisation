@@ -8,7 +8,7 @@ import { useEffect } from "react";
 export const getOraganisation = async (setOrtabl)=>{
 
     try{
-        let rawData = await fetch('http://192.168.1.88:1337/api/organisations');
+        let rawData = await fetch('http://localhost:1337/api/organisations');
         let dataJson = await rawData.json();
         return setOrtabl(dataJson);
     
@@ -21,13 +21,14 @@ export const getOraganisation = async (setOrtabl)=>{
 
 // for delete :
 
-export const deleteit = async (id)=>{
+export const deleteit = async (id,setOpen)=>{
 
     try{    
-        let Fdeleteitem = await fetch('http://192.168.1.88:1337/api/organisations/'+id,{
+        let Fdeleteitem = await fetch('http://localhost:1337/api/organisations/'+id,{
             method : 'DELETE',
         });
         let deleteite = await Fdeleteitem.json();
+        setOpen(false)
         }catch (error) {
             console.warn(error);
             return 'walo';
@@ -52,7 +53,7 @@ try{
                     "groups": {
                         "connect" : idgr
 }}}
-    let rawData = await fetch("http://192.168.1.88:1337/api/organisations?populate=groups",{
+    let rawData = await fetch("http://localhost:1337/api/organisations?populate=groups",{
         method: 'POST',
         headers: myHeaders,
         body : JSON.stringify(dataB),
@@ -79,7 +80,7 @@ try{
  export const showV = async (id)=>{
 
 try{
-    let rawData = await fetch("http://192.168.1.88:1337/api/organisations/"+id+"?populate=groups",{
+    let rawData = await fetch("http://localhost:1337/api/organisations/"+id+"?populate=groups",{
         method: 'GET',
         
     });
@@ -100,7 +101,7 @@ try{
 export const modifiedval = async (id,modification,modificationdesc,filt)=>{
     let bod = {"data": {"name": modification , "description":modificationdesc , "groups": {"set" : filt}}};
 try{
-    let rawData = await fetch( 'http://192.168.1.88:1337/api/organisations/'+id+'?populate=groups',{
+    let rawData = await fetch( 'http://localhost:1337/api/organisations/'+id+'?populate=groups',{
         method: 'PUT',        
         headers: {
             'Content-Type': 'application/json'
@@ -127,17 +128,15 @@ try{
 
 // show value for the title of groups liste : 
 
-export const titleshow = (id,setTitle)=>{
-    useEffect(()=>{
-        fetch("http://192.168.1.88:1337/api/organisations/"+id).then((res)=>{
-            return res.json();
-        }).then((res)=>{
-            setTitle(res.data.attributes.name);
-        }).catch( (error)=> {
-            console.warn(error);
-            return 'walo';
-        })
-    },[])
+export const titleshow = async (id,setTitle)=>{
+    try{
+        let rawData = await fetch("http://localhost:1337/api/organisations/"+id);
+        let dataJson = await rawData.json();
+            setTitle(dataJson.data.attributes.name);
+    }catch (error) {
+        console.warn(error);
+        return 'walo';
+    }
 }
 
 // show groups : 
@@ -146,9 +145,21 @@ export const titleshow = (id,setTitle)=>{
 export const getgroups = async (id,setArrgroup)=>{
 
     try{
-        let rawData = await fetch('http://192.168.1.88:1337/api/organisations/'+id+'?populate=groups');
+        let rawData = await fetch('http://localhost:1337/api/organisations/'+id+'?populate=groups');
         let dataJson = await rawData.json();
-        return setArrgroup(dataJson.data.attributes.groups);
+        setArrgroup(dataJson.data.attributes.groups);
+    }catch (error) {
+        console.warn(error);
+        return 'walo';
+    }
+}
+
+export const getinfo = async (id,setgroup)=>{
+
+    try{
+        let rawData = await fetch('http://localhost:1337/api/organisations/'+id+'?populate=groups');
+        let dataJson = await rawData.json();
+        setgroup(dataJson);
     }catch (error) {
         console.warn(error);
         return 'walo';

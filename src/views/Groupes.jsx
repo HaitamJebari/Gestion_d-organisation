@@ -4,6 +4,7 @@ import { Table } from "react-bootstrap";
 import { Link, useParams } from 'react-router-dom';
 
 
+
 function Groupes(){
     const {id} = useParams()
     const [groups,setgroupes]=useState([]);

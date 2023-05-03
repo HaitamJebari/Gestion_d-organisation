@@ -28,12 +28,10 @@ function App() {
   };
 
   return (
-    <div className="h-full">
+    <div className="APP">
       <AppContext.Provider value={{ showPopup, setShowPopup }}>
         <UserContext.Provider value={{ userInfo, setUserInfo, userGroups, setUserGroups }}>
-          <header>
             <TheNav />
-          </header>
           <AlertContext.Provider value={{ alertRef, alertListRef, alertList, setAlertList, pushAlert }}>
             <div className="relative h-full">
               <MainRouter />

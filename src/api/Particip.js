@@ -32,9 +32,3 @@ export const Getgroupes = async (id) =>{
     }
 }
 
-export const w3_open = async () => {
-    document.getElementById("mySidebar").style.display = "block";
-}
-export const w3_close = async () => {
-    document.getElementById("mySidebar").style.display = "none";
-}

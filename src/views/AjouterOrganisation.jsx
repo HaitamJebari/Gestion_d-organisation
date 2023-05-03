@@ -5,6 +5,7 @@ import {api} from '../api/Grou';
 import Select from 'react-select';
 import { FaSearch } from 'react-icons/fa';
 import InputGroup from 'react-bootstrap/InputGroup'
+import '../Ajouter.css'
 
 
 
@@ -69,48 +70,48 @@ fetchData(value);
 
 
   return (
-    <div>
-            
-            
-        <div className="Title">
+        
+     <div className="mod">  
+        <div className="one">
             <h1>AJOUTER UNE NOUVELLE ORGANISATION</h1>
         </div>
                             
-       <form action="" method="post">
-            <InputGroup id='input'>
-               <InputGroup.Text id="inputGroup">
+        <div className="inputes" id='inpt'>    
+            <Form.Group id='input'>
+               <Form.Label id="FormGroup">
                Nom
-               </InputGroup.Text>
+               </Form.Label>
             <Form.Control
                aria-label="Nom"
-               aria-describedby="inputGroup"
+               aria-describedby="FormGroup"
+               id="FormControl"
                value={Norg}
                onChange={(e)=>setNorg(e.target.value)}
             />
-            </InputGroup>                 
-            <InputGroup id='input' className="mb-3">
-               <InputGroup.Text id="inputGroup">
+            </Form.Group>                 
+            <Form.Group id='input' className="mb-3">
+               <Form.Label id="FormGroup">
                Description
-               </InputGroup.Text>
+               </Form.Label>
             <Form.Control
+               id="FormControl"
                aria-label="Prenom"
-               aria-describedby="inputGroup"
+               aria-describedby="FormGroup"
                value={descorg}
               onChange={(e)=>setdescorg(e.target.value)}
             />
-            </InputGroup>    
+            </Form.Group>    
              
 
-       </form>
+        </div>
 
-
-       <div className='search'>
-
-
+        <div className="rech" id='rch'>
+         <h5 className="h5gr">Selectionnez votre Groupes</h5>
                             <div className="input-wrapper">
                                 <FaSearch id="search-icon"/>
                                 <input 
                                     placeholder="Type to search groups..."
+                                    id="placegr"
                                     value={input}
                                     onChange={(e)=>handleChange(e.target.value)}
                                 />
@@ -133,15 +134,13 @@ fetchData(value);
                   }
 
                   </div>
+                  </div>
 
-
-            <br />
-                    <Button as="Link" variant="success" id='mod' className='mt-5 w-60' onClick={ajouterorg} >
+                <div>
+                    <Button as="Link" variant="outline-success" className='Ajt'  onClick={ajouterorg} >
                       Ajouter
-                    </Button>
-
-      </div>
-
-    </div>
+                    </Button>    
+                </div>
+  </div>
   )
 }

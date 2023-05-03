@@ -1,13 +1,25 @@
 body{
-  @apply select-none;
+  /* @apply select-none; */
 }
-.main {
+section {
   width: 100%;
-  height: 91.5vh;
+  margin: 0;
+  padding: 0;
+  height: 96vh;
   display: flex;
-  align-items: center;
   justify-content: center;
   overflow: hidden;
+  background: url(pic2.jpg) no-repeat ;
+  background-position: center;
+  background-size: cover;
+  transition: all .5s;
+  -webkit-transition: all .5s;
+  -moz-transition: all .5s;
+  -ms-transition: all .5s;
+  -o-transition: all .5s;
+}
+.APP{
+ 
 }
 span{
   font-size: 300%;

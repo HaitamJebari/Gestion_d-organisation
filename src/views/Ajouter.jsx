@@ -103,62 +103,65 @@ function Ajouter(){
     
     return(
         <>
-         <div className="Title">
-            <h1>AJOUTER UN NOUVEAU PARTICIPANT</h1>
-         </div>
-            
-         <form action="" method="POST">
-                           
-            <InputGroup className="mb-6">
-               <InputGroup.Text id="inputGroup">
+         <div className="mod"> 
+            <div className="one">
+                <h1>AJOUTER UN NOUVEAU PARTICIPANT</h1>
+            </div>
+          <div className="inputes">                           
+            <Form.Group className="mb-6">
+               <Form.Label id="FormGroup">
                Nom
-               </InputGroup.Text>
+               </Form.Label>
             <Form.Control
                aria-label="Nom"
-               aria-describedby="inputGroup"
+               aria-describedby="FormGroup"
+               id="FormControl"
+               placeholder="Entrez Votre Nom"
                value={nom} 
                onChange={(e)=>{setnom(e.target.value)}}
             />
-            </InputGroup>                 
-            <InputGroup className="mb-3">
-               <InputGroup.Text id="inputGroup">
+            </Form.Group>                 
+            <Form.Group className="mb-3">
+               <Form.Label id="FormGroup">
                Prenom
-               </InputGroup.Text>
+               </Form.Label>
             <Form.Control
+               id="FormControl"
                aria-label="Prenom"
-               aria-describedby="inputGroup"
+               aria-describedby="FormGroup"
+               placeholder="Entrez Votre Prenom"
                value={prenom} 
                onChange={(e)=>{setprenom(e.target.value)}}
             />
-            </InputGroup>    
-            <InputGroup className="mb-3">
-               <InputGroup.Text id="inputGroup">
+            </Form.Group>    
+            <Form.Group className="mb-3">
+               <Form.Label id="FormGroup">
                 Telefone
-               </InputGroup.Text>
+               </Form.Label>
             <Form.Control
                aria-label="Telefone"
                aria-describedby="inputGroup"
+               id="FormControl"
+               placeholder="Entrez Votre Telefone"
                value={tel} 
                onChange={(e)=>{settel(e.target.value)}}
             />
-            </InputGroup>   
+            </Form.Group>   
+            </div>
 
-
-
+            <div className="rech">
+                <h5 className="h5gr">Selectionnez votre Groupes</h5>
                 <div className="input-wrapper">
                     <FaSearch id="search-icon"/>
                     <input 
                         placeholder="Type to search groups..."
+                        id="placegr"
                         value={input}
                         onChange={(e)=>handleChange(e.target.value)}
-                    />
-                    
+                    />              
                 </div>
-
-
-
                     <div className="Checkdiv">
-                            
+                             
                             {
                                 
                                     gr?.data?.map((group)=>{
@@ -176,12 +179,12 @@ function Ajouter(){
                             }
                         
                     </div>
-                
+            </div>
                 <Link to={`/Participants`}>
-                    <Button variant="outline-success" className="ajt" onClick={()=>add(nom,prenom,tel)}>Ajouter</Button>
+                    <Button variant="outline-success" className="Ajt" onClick={()=>add(nom,prenom,tel)}>Ajouter</Button>
                 </Link>
-                        
-            </form>
+                    
+            </div>  
         </>
     )
 }

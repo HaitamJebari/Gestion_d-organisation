@@ -1,6 +1,108 @@
-.navbar{
+/* .navbar{
     margin-top: -5px;   
     box-sizing: border-box;
     padding-right: 0;
     text-align: center;
+} */
+
+
+/* .Sidebar{
+    background-color: red;
+    position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #e90b0b;
+  overflow-x: hidden;
+  padding-top: 20px;
+  height: 300px;
+} */
+.Menu{
+    background-color: white
 }
+.MenuItem{
+    width: 50px;
+    height: 4px;
+}
+#check{
+    display: none;
+}
+.sidebar{
+    position: fixed;
+    z-index: 1;
+    left: -250px;
+    width: 250px;
+    margin-top: -25px;
+    height: 100%;
+    background-color: rgb(24, 255, 255);
+    transition: all .5s ease;
+    -webkit-transition: all .5s ease;
+    -moz-transition: all .5s ease;
+    -ms-transition: all .5s ease;
+    -o-transition: all .5s ease;
+}
+.sidebar header{
+    padding-top: 20px;
+    padding-left: 85px;
+}
+.sidebar ul a{
+    display: block;
+    height: 100%;
+    width: 100%;
+    line-height: 65px;
+    padding-left: 40px;
+    box-sizing: border-box;
+    transition: .4s;
+    -webkit-transition: .4s;
+    -moz-transition: .4s;
+    -ms-transition: .4s;
+    -o-transition: .4s;
+}
+#check:checked ~ section {
+    margin-left: 250px;
+  }
+
+ul li:hover a{
+    padding-left: 50px;
+}
+.sidebar ul a i{
+    margin-right: 16px;
+}
+label #btn , label #cancel{
+    position: absolute;
+}
+label #btn{
+    left: 60px;
+    top: 15px;
+    cursor: pointer;
+    font-size: 35px;
+    z-index: 1;
+    transition: all .5s;
+    -webkit-transition: all .5s;
+    -moz-transition: all .5s;
+    -ms-transition: all .5s;
+    -o-transition: all .5s;
+}
+label #cancel{
+    z-index: 1111;
+    cursor: pointer;
+    left: -195px;
+    top: 17px;
+    transition: all .5s ease;
+    -webkit-transition: all .5s ease;
+    -moz-transition: all .5s ease;
+    -ms-transition: all .5s ease;
+    -o-transition: all .5s ease;
+}
+#check:checked ~ .sidebar{
+   left: 0;
+}
+#check:checked ~ label #btn{
+    left: 250px;
+    opacity: 0;
+    pointer-events: none;
+ }
+ #check:checked ~ label #cancel{
+    left: 220px;
+    margin-top: -5px;
+ }

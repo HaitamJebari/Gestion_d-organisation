@@ -36,8 +36,8 @@ function Participants () {
 }
     return (
         <>
-        <div id="cnt">
-
+   
+        <div className="cnt">
         <div className="Title">
             <h1>Gestion des Participants</h1>
         </div>
@@ -47,6 +47,11 @@ function Participants () {
                     Ajouter un Nouveau Participant
                 </Button>
             </Link>
+            
+            {/* //Pagination */}
+            {/* <div className="pag">
+              
+            </div> */}
         <div className="table">
          <Table striped bordered hover >
                <thead>
@@ -69,12 +74,12 @@ function Participants () {
                           </Link>
                           <Link to={`/Groupes/${Participants.id}`}>
                                 <Button as="Link" id="Button" variant="outline-info">
-                                    Groupes
+                                    Consulter
                                 </Button>
                           </Link>
-                            <Button as="Link" id="Button" variant="outline-danger" className='ml-5' onClick={()=>delt(Participants.id)}>
-                                Supprimer
-                            </Button>
+                                <Button as="Link" id="Button" variant="outline-danger" className='ml-5' onClick={()=>delt(Participants.id)}>
+                                    Supprimer
+                                </Button>
                           </td>
                       </tr>
                  ))}
@@ -83,6 +88,7 @@ function Participants () {
             
         </div>
         </div>
+       
         </>
     );
 }

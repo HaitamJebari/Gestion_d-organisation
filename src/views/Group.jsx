@@ -4,6 +4,7 @@ import Table from 'react-bootstrap/Table';
 import Button from 'react-bootstrap/Button';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Link } from 'react-router-dom';
+import '../Groupes.css'
 export default function Group() {
 
 
@@ -24,6 +25,7 @@ export default function Group() {
 
   return (
     <>
+<div className="cnt">
         <div className="Title">
            <h1>Gestion des Groupes</h1>
         </div>
@@ -70,6 +72,7 @@ export default function Group() {
         </tbody>
         
     </Table>
+    </div>
     </div>
     </>
   )

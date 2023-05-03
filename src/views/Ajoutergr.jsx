@@ -3,6 +3,7 @@ import Button from 'react-bootstrap/Button';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Alert, Form } from 'react-bootstrap';
 import {ajt} from '../api/Grou';
+import '../Ajouter.css';
 
 export default function Ajouter() {
 
@@ -14,28 +15,35 @@ export default function Ajouter() {
     }
 
   return (
-    <div>
-        <div className="Title">
+    <>
+    <div className='mod' id='grmod'>
+        <div className="one">
             <h1>AJOUTER UN NOUVEAU GROUPE</h1>
         </div>
                  
-            
-    <p className='mt-4'>Nom de groupe</p>
-    <Alert variant="warning" className='w-50 mt-3'>
-        NB : si le nom de group deja exist dans le tableau cette groupe n'ajoute pas 
-    </Alert>
-      <Form.Control
-        type="text"
-        placeholder='deposer le nom de group'
-        className='w-50 mt-3'
-        value={groupName}
-        onChange={(e)=>setGroupName(e.target.value)}
-      />
-        <Button as="Link" variant="outline-success" className='mt-5 w-60' onClick={ajouter}>
-           Ajouter
-        </Button>
-
+        <div className="inputes" id='grInput'>   
+          <Alert variant="warning" >
+              NB : si le nom de group deja exist dans le tableau cette groupe n'ajoute pas 
+          </Alert>
+          <Form.Group className="mb-6">
+              <Form.Label id="FormGroup">
+               Nom de Groupe
+               </Form.Label>
+            <Form.Control
+              type="text"
+              placeholder='Deposer le Nom de Groupe'
+              value={groupName}
+              onChange={(e)=>setGroupName(e.target.value)}
+            />
+            </Form.Group>
+            </div> 
+    
+              <Button as="Link" className="Ajt" variant="outline-success" onClick={ajouter}>
+                Ajouter
+              </Button>
 
     </div>
+    
+    </>
   )
 }

@@ -25,7 +25,7 @@ try{
 // fetch for delete :
 
 
-export const deleteit = async (id)=>{
+export const deleteit = async (id,setOpen)=>{
 
 try{    
     let Fdeleteitem = await fetch('http://192.168.1.88:1337/api/groups/'+id,{
@@ -33,6 +33,7 @@ try{
     });
     let deleteite = await Fdeleteitem.json();
     console.log(deleteite);
+    setOpen(false)
     }catch (error) {
         console.warn(error);
         return 'walo';

@@ -177,7 +177,6 @@ function Ajouter(){
                                     )
                                 })
                             }
-                        
                     </div>
             </div>
                 <Link to={`/Participants`}>

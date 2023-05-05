@@ -1,5 +1,5 @@
 .Title{
-    margin-top: 5px;
+    margin-top: 30px;
     margin-bottom: 50px;
 }
 .Title h1 {
@@ -45,8 +45,8 @@ th{
     width: 500px;
 }
 
-.table{
-   margin: 20px;
+.particip{
+  margin-left: 100px;
    width:75em;
   
 }
@@ -66,5 +66,5 @@ margin-left: 3px;
 }
 
 #main{
-    margin-left: 200px;
+  margin-left: 200px;
 }

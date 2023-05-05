@@ -46,7 +46,6 @@ export default function Organisation_liste() {
       };
   return (
     <>
-     <div className="cnt">
         <div className="Title">
            <h1>Gestion d'organisation</h1>
         </div>
@@ -55,6 +54,7 @@ export default function Organisation_liste() {
            Ajouter Une Nouvelle Organisation
         </Button>
     </Link>
+    <div className="cnt">
     <div className='table'>
             <ReactPaginate
                 pageCount={3}

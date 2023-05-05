@@ -17,7 +17,7 @@ function Groupes(){
     
     useEffect(()=>{
         const callapi = async () =>{
-            let data = await getgr(id); 
+            let data = await Getgroupes(id); 
             // console.log(data);
             setgroupes(data);     
             
@@ -27,7 +27,7 @@ function Groupes(){
     },[])
     useEffect(()=>{
         const callgrou = async () =>{
-            let res = await Getgroupes(id); 
+            let res = await getgr(id); 
             // console.log(data);
             setArr(res);     
          

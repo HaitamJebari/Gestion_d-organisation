@@ -18,7 +18,7 @@ export default function Ajouter() {
 
   return (
     <>
-    <div className='mod' id='grmod'>
+    <div className='mod' >
         <div className="one">
             <h1>AJOUTER UN NOUVEAU GROUPE</h1>
         </div>

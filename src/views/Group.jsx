@@ -40,10 +40,10 @@ export default function Group() {
 
   return (
     <>
-<div className="cnt">
-        <div className="Title">
-           <h1>Gestion des Groupes</h1>
-        </div>
+    <div className="Title">
+        <h1>Gestion des Groupes</h1>
+    </div>
+    <div className="cnt">
     <Link to='/Ajoutergr'>             
            <Button as="Link" variant="outline-success" className='ajt'>
            Ajouter un Nouveau Groupe

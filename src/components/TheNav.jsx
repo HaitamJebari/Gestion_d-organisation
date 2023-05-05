@@ -5,7 +5,6 @@ import { useContext } from "react";
 import { UserContext } from "../context/UserContext";
 import { openBackOffice } from "../api/Core";
 import { FaBars , FaTimes } from "react-icons/fa";
-
 import './TheNav.css'
 const TheNav = () => {
   // const { userInfo, setUserInfo } = useContext(UserContext);

@@ -60,11 +60,11 @@ function Participants () {
 
     return (
         <>
-   
-        <div className="cnt">
         <div className="Title">
             <h1>Gestion des Participants</h1>
         </div>
+        <div className="cnt">
+            
             <Link to={`/Ajouter`}>
                 <Button as="Link" variant="outline-success" className='ajt' >
                     Ajouter un Nouveau Participant

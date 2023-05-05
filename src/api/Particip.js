@@ -2,7 +2,7 @@
 
 export const dataAll = async () =>{
     try{
-    let fetchdata = await fetch('http://localhost:1337/api/participants?populate=groups')
+    let fetchdata = await fetch('http://192.168.1.88:1337/api/participants?populate=groups')
     let data = await fetchdata.json();
     return (data)
     }catch(e){
@@ -13,7 +13,7 @@ export const dataAll = async () =>{
 
 export const getgr = async (id) =>{
     try{
-    let fetchdata = await fetch(`http://localhost:1337/api/participants/${id}?populate=groups`)
+    let fetchdata = await fetch(`http://192.168.1.88:1337/api/participants/${id}?populate=groups`)
     let data = await fetchdata.json();
     return (data.data.attributes.groups)
     }catch(e){
@@ -23,7 +23,7 @@ export const getgr = async (id) =>{
 }
 export const Getgroupes = async (id) =>{
     try{
-    let fetchdata = await fetch(`http://localhost:1337/api/participants/${id}?populate=groups`)
+    let fetchdata = await fetch(`http://192.168.1.88:1337/api/participants/${id}?populate=groups`)
     let data = await fetchdata.json();
     return (data)
     }catch(e){

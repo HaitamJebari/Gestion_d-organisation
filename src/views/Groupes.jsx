@@ -2,8 +2,11 @@ import React , {useEffect , useState} from "react";
 import { dataAll, getgr ,Getgroupes} from "../api/Particip";
 import { Button, Card, Table } from "react-bootstrap";
 import { Link, useParams } from 'react-router-dom';
+import {FaArrowLeft} from "react-icons/fa";
 import utilisateur from "../images/profile.jpg"
 import { data } from "autoprefixer";
+import '../Modifier.css';
+
 
 
 function Groupes(){
@@ -35,14 +38,17 @@ function Groupes(){
 
 return(
     <>
-        <div className="table">
-        <div className="Title">
-            <h1>consulter le Participant {groups?.data?.attributes?.Nom}</h1>
+        <div className="mod">
+        <div className="one">
+            <h1>À propos du Participant : {groups?.data?.attributes?.Nom}</h1>
         </div>
-
-        
-        <Card>
-            <div className="d-flex">
+        <div className="Arr">
+              <Link to='/Participants'>
+              <FaArrowLeft/>
+              </Link>
+        </div>    
+        <Card className="card">
+            <div className="d-flex ">
             <div>
                 <Card.Img src={utilisateur} className="w-60 h-60"/>
             </div>
@@ -61,7 +67,7 @@ return(
             <ul>
             {
             //    console.log() 
-                arr?.data?.map((e)=>{
+                arr?.data?.data?.map((e)=>{
                     return (
                     <li key={e.id}>
                         {e?.attributes?.group_name}                       

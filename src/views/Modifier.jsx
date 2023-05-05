@@ -5,7 +5,7 @@ import { api } from "../api/Grou";
 import { useParams, Link } from "react-router-dom";
 import InputGroup from 'react-bootstrap/InputGroup';
 import '../Modifier.css';
-import { FaSearch } from "react-icons/fa";
+import { FaSearch , FaArrowLeft} from "react-icons/fa";
 
 export default function Modifier() {
     const {id} = useParams();
@@ -45,8 +45,6 @@ export default function Modifier() {
                 setTestchecked(oldN)
             })
             //===============search==================
-            const results = result
-
         }   
         callapi();
     },[])
@@ -114,41 +112,54 @@ export default function Modifier() {
     
     return(
         <>
-            <form action="" method="put">
-              <InputGroup className="mb-6">
-               <InputGroup.Text id="inputGroup">
+                 <div className="mod"> 
+                 <div className="one">
+                    <h1>MODIFICATION DU PARTICIPANTS</h1>
+                 </div>
+                 <div className="Arr">
+                    <Link to='/Participants'>
+                    <FaArrowLeft/>
+                    </Link>
+                </div>
+                 <div className="inputes">
+              <Form.Group className="mb-6">
+               <Form.Label id="FormGroup">
                  Nom
-               </InputGroup.Text>
+               </Form.Label>
                 <Form.Control
                     type="text"
+                    id="FormControl"
                     value={nom}
                     onChange={(e)=>{setnom(e.target.value)}}
                 />
-              </InputGroup>
-              <InputGroup className="mb-6">
-              <InputGroup.Text id="inputGroup">
+              </Form.Group>
+              <Form.Group className="mb-3">
+              <Form.Label id="FormGroup">
                  Prenom
-               </InputGroup.Text>
+               </Form.Label>
                 <Form.Control
+                    id="FormControl"    
                     type="text"
                     value={prenom}
                     onChange={(e)=>{setprenom(e.target.value)}}
                 />
-                </InputGroup>
-                <InputGroup className="mb-6">
-                <InputGroup.Text id="inputGroup">
+                </Form.Group>
+                <Form.Group className="mb-3">
+                <Form.Label id="FormGroup">
                   Telefone
-                </InputGroup.Text>
+                </Form.Label>
                 <Form.Control
+                    id="FormControl"
                     type="text"
                     value={Tel}
                     onChange={(e)=>{setTel(e.target.value)}}
                 />
-                </InputGroup>
+                </Form.Group>
+            </div>   
 
 
-
-
+                <div className="rech">
+                <h5 className="h5gr">Selectionnez votre Groupes</h5>
                 <div className="input-wrapper">
                     <FaSearch id="search-icon"/>
                     <input 
@@ -181,12 +192,11 @@ export default function Modifier() {
                             }                     
                 </div>
                  
-                
-                   <Button as="Link" variant="outline-success" className='ajt' onClick={modify}>
+            </div>
+                   <Button as="Link" variant="outline-success" className="Ajt" onClick={modify}>
                     Enregistrer
                   </Button>
-                
-            </form>
+            </div>
         </>
     )
 }

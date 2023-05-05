@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import {Link} from 'react-router-dom'
 import Form from 'react-bootstrap/Form';
-import InputGroup from 'react-bootstrap/InputGroup'
 import Button from 'react-bootstrap/Button';
-import {FaSearch} from "react-icons/fa";
+import {FaSearch , FaArrowLeft , FaTimes} from "react-icons/fa";
+import Badge from 'react-bootstrap/Badge';
 import '../Ajouter.css'
 import { dataAll } from "../api/Particip";
 
@@ -14,9 +14,27 @@ function Ajouter(){
     const [groups,setgroupes]=useState([]);
     const [ide,setide] = useState([]);
     const [input,setInput]=useState("");
-    const [gr,setGr]=useState("")
+    const [gr,setGr]=useState("");
+    const [bdg, setbdg]=useState(false)
 
+    useEffect(()=>{
+        const callapi = async () =>{
+            let data = await dataAll(); 
+            console.log("Les Datas :",data)
+        }   
+        callapi(); 
+    },[])
 
+   //BADGE
+   const handleSwitchClick = () => {
+      //       let switches = []
+//       gr?.data?.map((e)=>{
+//          return(
+//              switches.push({"group_name": e.attributes.group_name, "checked":bdg})
+//          )
+//    });
+//    console.log('SWITCHES',switches);
+  }
 
     const handleCheckboxChange = (e, id) => {
         const isChecked = e.target.checked
@@ -29,13 +47,7 @@ function Ajouter(){
         }
     };
    
-      useEffect(()=>{
-        const callapi = async () =>{
-            let data = await dataAll(); 
-            console.log("Les Datas :",data)
-        }   
-        callapi(); 
-    },[])
+      
 
 
     
@@ -107,6 +119,11 @@ function Ajouter(){
             <div className="one">
                 <h1>AJOUTER UN NOUVEAU PARTICIPANT</h1>
             </div>
+            <div className="Arr">
+              <Link to='/Participants'>
+              <FaArrowLeft/>
+              </Link>
+            </div>
           <div className="inputes">                           
             <Form.Group className="mb-6">
                <Form.Label id="FormGroup">
@@ -169,20 +186,31 @@ function Ajouter(){
                                     <div className="check2" key={group.id}>
                                             <Form.Check 
                                                 value={group?.attributes?.group_name}
-                                                type="switch" 
+                                                type="switch"
                                                 label={group?.attributes?.group_name}
                                                 onChange={(e)=>handleCheckboxChange(e,group.id)}
-                                            />                        
+                                            />                         
                                     </div>
+                                    
                                     )
+                                    
                                 })
-                            }
+                                
+                            }  
+      
+                            
                     </div>
+                   <div className="badg">
+                    
+                    </div>             
+                    
+
             </div>
+            <div>
                 <Link to={`/Participants`}>
                     <Button variant="outline-success" className="Ajt" onClick={()=>add(nom,prenom,tel)}>Ajouter</Button>
                 </Link>
-                    
+            </div>       
             </div>  
         </>
     )

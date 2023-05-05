@@ -3,7 +3,10 @@ import {titleshow,getgroups,getinfo} from '../api/organisation';
 import { Link, useParams } from 'react-router-dom';
 import { Button, Card } from 'react-bootstrap';
 import{ useEffect, useState } from 'react';
+import {FaArrowLeft} from "react-icons/fa";
 import organ from "../images/kisspng-hierarchical-organization-computer-icons-organizat-human-organization-5addcda32d2799.731398251524485539185.jpg"
+import '../Modifier.css';
+
 export default function ShowGroups() {
     const {id} = useParams()
     const [title,setTitle] = useState();
@@ -20,18 +23,26 @@ export default function ShowGroups() {
 
     
   return (
-    <div>
-        <div className="Title">
-            <h1>consulter organisation : {title}</h1>
+    <>
+        <div className="mod"> 
+        <div className="one">
+            <h1>À propos d'organisation : {title}</h1>
         </div>
-        <Card className='mt-3'>
+        <div className="Arr">
+              <Link to='/organisation'>
+              <FaArrowLeft/>
+              </Link>
+        </div>
+        <Card className="card">
             <div className="d-flex">
             <div>
                 <Card.Img src={organ} className="w-60 h-100"/>
             </div>
             <div>
             <Card.Body>
-                <h6 style={{  fontWeight: 'bold' }}>Nom de organisation :</h6><br />
+                <h6 style={{  fontWeight: 'bold' }}>
+                    Nom de organisation :
+                </h6><br />
                 <Card.Text> {title} </Card.Text> <br />
                 <Card.Text>
                 <h6 style={{  fontWeight: 'bold' }}>Description :</h6> <br />
@@ -58,11 +69,8 @@ export default function ShowGroups() {
             
 
         </Card>
-    <Link to="/organisation">
-        <Button as="Link" variant="outline-success" className='ml-5 mt-4'>
-            retour
-        </Button>
-    </Link>
-    </div>
+        </div>
+    
+    </>
   )
 }

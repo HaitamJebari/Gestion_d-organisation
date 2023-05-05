@@ -33,8 +33,8 @@ const TheNav = () => {
             <Link to="/gr">
                Groupes
             </Link>
-          </li>
-          <li className="linkRoute" >
+          </li >
+          <li className="linkRoute">
             <Link to="/organisation" >
               Organisation
             </Link>

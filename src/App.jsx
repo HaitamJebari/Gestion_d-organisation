@@ -8,7 +8,6 @@ import { UserContext } from "./context/UserContext";
 import { AlertContext } from "./context/AlertContext";
 import { useRef } from "react";
 import AlertContainer from "./components/AlertContainer";
-import { useEffect } from "react";
 import {  } from "react-bootstrap/esm/ThemeProvider";
 function App() {
   // App context

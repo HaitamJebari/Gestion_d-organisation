@@ -11,14 +11,10 @@ label{
 }
 
 #inputGroup{
-    width: 100px;
+    width: 10px;
     margin-left: 200px;
 }
- .ajt{
-    margin-left: 350px;
-    margin-top: 30px;
-    width: 550px;
- }
+
  #select{
     width: 780px;
     margin-left: 200px;
@@ -89,3 +85,46 @@ input:focus{
     color: royalblue;
     width: 80px;
 }
+.mod {
+    width: 70em;
+    height: 600px;
+    background: #FFFFFF;
+    box-shadow: 0px 187px 75px rgba(0, 0, 0, 0.01), 0px 105px 63px rgba(0, 0, 0, 0.05), 0px 47px 47px rgba(0, 0, 0, 0.09), 0px 12px 26px rgba(0, 0, 0, 0.1), 0px 0px 0px rgba(0, 0, 0, 0.1);
+    border-radius: 26px;
+    margin-left: 200px;
+    margin-top: 70px;
+    margin-bottom: 20px;
+    padding: 50px;
+    padding-right: 250px;
+
+  }
+  .inputes{
+     padding-left: 50px;     
+  }
+  #grInput{
+    padding-left: 170px;
+    width: 53em;
+  }
+  #grmod{
+    height: 400px;
+    margin-top: 30px;
+    margin-bottom: 50px;
+  }
+  #FormControl{
+    width: 30em;
+  }
+  .rech{
+    margin-left: 354px;
+    margin-top: -267px;
+  }
+  .h5gr{
+    padding-left: 17em;
+    padding-bottom: 20px;
+    font-weight: 400;
+  }
+  #rch{
+    padding-top: 96px;
+  }
+  #placegr{
+    margin-left: -30px;
+  }

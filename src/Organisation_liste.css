@@ -56,3 +56,10 @@ h1{
 #mod{
     margin-left: 550px;
 }
+.cnt{
+    margin-top: 50px;
+    padding-left: 120px;
+   background: no-repeat;
+   background-position: center;
+   background-size: cover;
+}

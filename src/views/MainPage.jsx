@@ -3,11 +3,10 @@ import '../App.css';
 import pic from '../images/pic2.jpg'
 export default function MainPage() {
   return (
-    <div className='main'>
-
-        <img src={pic} alt="" />
-        <div className="centered"><span>welcome <br /> to the <br /> school web site</span></div>
-      
-    </div>
+   <section>
+        <img src={pic} alt="" className='pic'/>
+        <div className="centered"><span>Welcome <br /> to the <br /> School Web Site</span></div>
+   </section>
+    
   )
 }

@@ -5,6 +5,7 @@ import { Link, useParams } from 'react-router-dom';
 import utilisateur from "../images/profile.jpg"
 import { data } from "autoprefixer";
 
+
 function Groupes(){
     const {id} = useParams()
     const [groups,setgroupes]=useState([]);
@@ -13,7 +14,7 @@ function Groupes(){
     
     useEffect(()=>{
         const callapi = async () =>{
-            let data = await getgr(id); 
+            let data = await Getgroupes(id); 
             // console.log(data);
             setgroupes(data);     
             
@@ -23,7 +24,7 @@ function Groupes(){
     },[])
     useEffect(()=>{
         const callgrou = async () =>{
-            let res = await Getgroupes(id); 
+            let res = await getgr(id); 
             // console.log(data);
             setArr(res);     
          

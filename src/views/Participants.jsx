@@ -60,17 +60,21 @@ function Participants () {
 
     return (
         <>
-        <div id="cnt">
-
         <div className="Title">
             <h1>Gestion des Participants</h1>
         </div>
+        <div className="cnt">
             
             <Link to={`/Ajouter`}>
                 <Button as="Link" variant="outline-success" className='ajt' >
                     Ajouter un Nouveau Participant
                 </Button>
             </Link>
+            
+            {/* //Pagination */}
+            {/* <div className="pag">
+              
+            </div> */}
         <div className="table">
         <ReactPaginate
                 pageCount={3}
@@ -120,6 +124,7 @@ function Participants () {
             
         </div>
         </div>
+       
         </>
     );
 }

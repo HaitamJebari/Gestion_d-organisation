@@ -47,8 +47,9 @@ export default function Organisation_liste() {
   return (
     <>
         <div className="Title">
-           <h1>Gestion des d'organisation</h1>
+           <h1>Gestion d'organisation</h1>
         </div>
+     <div className="cnt">
     <Link to='/AjouterOrganisation'>             
            <Button as="Link" variant="outline-success" className='ajt'>
            Ajouter Une Nouvelle Organisation
@@ -107,6 +108,7 @@ export default function Organisation_liste() {
         </tbody>
         
     </Table>
+    </div>
     </div>
     </>
   )

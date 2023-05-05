@@ -21,7 +21,7 @@ export default function ModifierGroup() {
 
   return (
     <>
-      <div className="mod" id='grmod'> 
+      <div className="mod" > 
                  <div className="one">
                    <h1> MODIFICATION DU GROUPE</h1>
                 </div>

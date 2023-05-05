@@ -5,7 +5,8 @@ import { useParams } from 'react-router-dom'
 import {showV,modifiedval} from '../api/organisation';
 import InputGroup from 'react-bootstrap/InputGroup'
 import {api} from "../api/Grou";
-import { FaSearch } from 'react-icons/fa';
+import {Link} from 'react-router-dom'
+import { FaSearch , FaArrowLeft} from 'react-icons/fa';
 import '../Organisation_liste.css'
 
 
@@ -87,42 +88,47 @@ export default function UpdateOraganisation() {
   
 
 return (
-    <div>
-      <h1 className='mt-3'>Modification :</h1>
-
-
-
-
-<form action="" method="post">
-            <InputGroup id='input'>
-               <InputGroup.Text id="inputGroup">
+    <>
+    <div className="mod"> 
+                 <div className="one">
+                        <h1>MODIFICATION D'ORGANISATION</h1>
+                  </div>
+                  <div className="Arr">
+                        <Link to='/gr'>
+                        <FaArrowLeft/>
+                        </Link>
+                  </div> 
+            <Form.Group className="mb-6">
+               <Form.Label id="FormGroup">
                Nom
-               </InputGroup.Text>
+               </Form.Label>
             <Form.Control
                aria-label="Nom"
-               aria-describedby="inputGroup"
+               id="FormControl"
+               aria-describedby="FormGroup"
                Value={defval}
                onChange={(e)=>setModification(e.target.value)}
             />
-            </InputGroup>                 
-            <InputGroup id='input' className="mb-3">
-               <InputGroup.Text id="inputGroup">
+            </Form.Group>                 
+            <Form.Group id='input' className="mb-3">
+               <Form.Label id="FormGroup">
                Prenom
-               </InputGroup.Text>
+               </Form.Label>
             <Form.Control
+               id="FormControl"
                aria-label="Prenom"
-               aria-describedby="inputGroup"
+               aria-describedby="FormGroup"
                Value={defdescval}
                onChange={(e)=>setModificationdesc(e.target.value)}
             />
-            </InputGroup>    
+            </Form.Group>    
              
 
- </form>
 
 
 
-    <div className='search'>
+     <div id='rechOrg'>
+                <h5 className="h5gr">Selectionnez votre Groupes</h5>
 
                             <div className="input-wrapper">
                                 <FaSearch id="search-icon"/>
@@ -153,11 +159,12 @@ return (
       </div>
 
 
-        
-      <Button as="Link" variant="outline-success" id='mod' className='mt-5 w-60' onClick={()=>modifier()} >
+     </div>   
+      <Button as="Link" variant="outline-success" className='ajt'  onClick={()=>modifier()} >
            Modifier
       </Button>
+    
       </div>
-    </div>
+    </>
   )
 }

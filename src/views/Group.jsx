@@ -14,7 +14,7 @@ export default function Group() {
     const [tab,setTab] = useState([])
     useEffect(() => {
         axios
-          .get(`http://localhost:1337/api/groups?pagination[page]=${currentPage}&pagination[pageSize]=3`)
+          .get(`http://192.168.1.88:1337/api/groups?pagination[page]=${currentPage}&pagination[pageSize]=3`)
           .then((response) => {
             console.log(response);
             // let res = response.json();

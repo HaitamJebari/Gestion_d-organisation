@@ -24,7 +24,7 @@ function Participants () {
 
     useEffect(() => {
         axios
-          .get(`http://localhost:1337/api/participants?pagination[page]=${currentPage}&pagination[pageSize]=3`)
+          .get(`http://192.168.1.88:1337/api/participants?pagination[page]=${currentPage}&pagination[pageSize]=3`)
           .then((response) => {
             console.log(response);
             // let res = response.json();
@@ -65,7 +65,6 @@ function Participants () {
         <div className="Title">
             <h1>Gestion des Participants</h1>
         </div>
-            
             <Link to={`/Ajouter`}>
                 <Button as="Link" variant="outline-success" className='ajt' >
                     Ajouter un Nouveau Participant

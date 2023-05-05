@@ -62,7 +62,7 @@
     margin-left: 250px;
   }
 
-ul li:hover a{
+.linkRoute:hover a{
     padding-left: 50px;
 }
 .sidebar ul a i{

@@ -5,6 +5,7 @@ import { useContext } from "react";
 import { UserContext } from "../context/UserContext";
 import { openBackOffice } from "../api/Core";
 import { FaBars , FaTimes } from "react-icons/fa";
+
 import './TheNav.css'
 const TheNav = () => {
   // const { userInfo, setUserInfo } = useContext(UserContext);
@@ -29,17 +30,17 @@ const TheNav = () => {
    <div className="sidebar">
      <header><Link to='/'><img src={Logo} alt="logo" className="w-16"></img></Link></header>
         <ul>
-          <li>
+          <li className="linkRoute">
             <Link to="/gr">
                Groupes
             </Link>
-          </li>
-          <li>
+          </li >
+          <li className="linkRoute">
             <Link to="/organisation" >
               Organisation
             </Link>
          </li>
-          <li>
+          <li className="linkRoute">
             <Link to="/participants" >
               Participants
             </Link>

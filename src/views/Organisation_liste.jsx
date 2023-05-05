@@ -18,7 +18,7 @@ export default function Organisation_liste() {
     const [ortabl,setOrtabl] = useState([]);
     useEffect(() => {
         axios
-          .get(`http://localhost:1337/api/organisations?pagination[page]=${currentPage}&pagination[pageSize]=3`)
+          .get(`http://192.168.1.88:1337/api/organisations?pagination[page]=${currentPage}&pagination[pageSize]=3`)
           .then((response) => {
             console.log(response);
             // let res = response.json();
@@ -58,9 +58,11 @@ export default function Organisation_liste() {
     <div className='table'>
             <ReactPaginate
                 pageCount={3}
+                limit={20}
                 onPageChange={handlePageChange}
                 containerClassName={"pagination ml-5"}
                 activeClassName={"active"}
+                ellipsis={1}
             />
          <Table striped bordered hover>
         <thead>

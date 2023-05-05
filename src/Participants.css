@@ -52,8 +52,9 @@ th{
 }
 .Ajt{
    margin-left: 260px;
-   margin-top: 30px;
+   margin-top: -90px;
    width: 550px;
+   display: block;
 }
 #Button{
 width: 95px;

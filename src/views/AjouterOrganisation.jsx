@@ -2,8 +2,9 @@ import React, { useEffect, useState } from 'react'
 import { Alert, Button, Form } from 'react-bootstrap'
 import {ajouter} from '../api/organisation';
 import {api} from '../api/Grou';
+import {Link} from 'react-router-dom'
 import Select from 'react-select';
-import { FaSearch } from 'react-icons/fa';
+import { FaSearch , FaArrowLeft} from 'react-icons/fa';
 import InputGroup from 'react-bootstrap/InputGroup'
 import '../Ajouter.css'
 
@@ -75,7 +76,11 @@ fetchData(value);
         <div className="one">
             <h1>AJOUTER UNE NOUVELLE ORGANISATION</h1>
         </div>
-                            
+        <div className="Arr">
+              <Link to='/organisation'>
+              <FaArrowLeft/>
+              </Link>
+        </div>                 
         <div className="inputes" id='inpt'>    
             <Form.Group id='input'>
                <Form.Label id="FormGroup">

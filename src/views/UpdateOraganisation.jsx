@@ -94,7 +94,7 @@ return (
                         <h1>MODIFICATION D'ORGANISATION</h1>
                   </div>
                   <div className="Arr">
-                        <Link to='/gr'>
+                        <Link to='/organisation'>
                         <FaArrowLeft/>
                         </Link>
                   </div> 

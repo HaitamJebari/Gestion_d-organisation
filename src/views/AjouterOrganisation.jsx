@@ -73,7 +73,7 @@ fetchData(value);
   return (
         
      <div className="mod">  
-        <div className="one">
+        <div className="ajt">
             <h1>AJOUTER UNE NOUVELLE ORGANISATION</h1>
         </div>
         <div className="Arr">

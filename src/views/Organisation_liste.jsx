@@ -49,12 +49,13 @@ export default function Organisation_liste() {
         <div className="Title">
            <h1>Gestion d'organisation</h1>
         </div>
+        <div className="cnt">
+
     <Link to='/AjouterOrganisation'>             
            <Button as="Link" variant="outline-success" className='ajt'>
            Ajouter Une Nouvelle Organisation
         </Button>
     </Link>
-    <div className="cnt">
     <div className='table'>
             <ReactPaginate
                 pageCount={3}

@@ -8,9 +8,9 @@ import { useParams } from "react-router-dom";
 export const api = async ()=>{
 
 try{
-    let rawData = await fetch('http://192.168.1.88:1337/api/groups');
+    let rawData = await fetch('http://localhost:1337/api/groups');
     let dataJson = await rawData.json();
-    return (dataJson)
+    return dataJson;
 
 }catch (error) {
     console.warn(error);
@@ -28,7 +28,7 @@ try{
 export const deleteit = async (id,setOpen)=>{
 
 try{    
-    let Fdeleteitem = await fetch('http://192.168.1.88:1337/api/groups/'+id,{
+    let Fdeleteitem = await fetch('http://localhost:1337/api/groups/'+id,{
         method : 'DELETE',
     });
     let deleteite = await Fdeleteitem.json();
@@ -51,7 +51,7 @@ export const ajt = async (groupName)=>{
     myHeaders.append("Content-Type", "application/json")
 try{
     let dataB = {"data":{"group_name": groupName}};
-    let rawData = await fetch('http://192.168.1.88:1337/api/groups',{
+    let rawData = await fetch('http://localhost:1337/api/groups',{
         method: 'POST',
         headers: myHeaders,
         body : JSON.stringify(dataB),
@@ -77,7 +77,7 @@ try{
 
 export const ft = async (id,setDefaultval)=>{
     useEffect(()=>{
-    fetch("http://192.168.1.88:1337/api/groups/"+id).then((res)=>{
+    fetch("http://localhost:1337/api/groups/"+id).then((res)=>{
         return res.json();
     }).then((res)=>{
         console.log(res)
@@ -94,7 +94,7 @@ export const ft = async (id,setDefaultval)=>{
 export const upd = async (modifs,id)=>{
     let bod = {"data": {"group_name": modifs}};
 try{
-    let rawData = await fetch( 'http://192.168.1.88:1337/api/groups/'+id,{
+    let rawData = await fetch( 'http://localhost:1337/api/groups/'+id,{
         method: 'PUT',        
         headers: {
             'Content-Type': 'application/json'

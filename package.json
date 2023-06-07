@@ -16,6 +16,8 @@
     "classnames": "^2.3.1",
     "feather-icons": "^4.29.0",
     "framer-motion": "^6.3.4",
+    "multiselect-react-dropdown": "^2.0.25",
+    "primereact": "^9.3.1",
     "react": "^18.0.0",
     "react-admin": "^4.10.1",
     "react-bootstrap": "^2.7.4",
@@ -26,7 +28,7 @@
     "react-paginate": "^8.2.0",
     "react-pro-sidebar": "^1.0.0",
     "react-router-dom": "^6.10.0",
-    "react-select": "^5.7.2",
+    "react-select": "^5.7.3",
     "strapi-sdk-javascript": "^0.3.3"
   },
   "devDependencies": {

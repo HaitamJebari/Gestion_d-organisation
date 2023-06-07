@@ -1,10 +1,11 @@
 import { Link, Route, Routes } from "react-router-dom";
 import CustomLink from "./basic-components/CustomLink";
 import Logo from "../assets/logo.svg";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { UserContext } from "../context/UserContext";
 import { openBackOffice } from "../api/Core";
 import { FaBars , FaTimes } from "react-icons/fa";
+
 import './TheNav.css'
 const TheNav = () => {
   // const { userInfo, setUserInfo } = useContext(UserContext);
@@ -19,34 +20,38 @@ const TheNav = () => {
   //     window.open(redirect.response);
   //   }
   // };
+  const back = ()=>{
+
+  }
   return (
    <>
-    <input type="checkbox" name="" id="check" />
+
+     <input type="checkbox" name="" id="check" />
     <label htmlFor="check">
        <FaBars id="btn"/>
        <FaTimes id="cancel"/>
     </label>
    <div className="sidebar">
-     <header><Link to='/'><img src={Logo} alt="logo" className="w-16"></img></Link></header>
+     <header><Link to='/' id="link"><img src={Logo} alt="logo" className="w-16"></img></Link></header>
         <ul>
           <li className="linkRoute">
-            <Link to="/gr">
-               Groupes
-            </Link>
+          <Link to="/gr" id="link" className="hide">
+              Groupes
+          </Link>
           </li >
           <li className="linkRoute">
-            <Link to="/organisation" >
+            <Link to="/organisation" id="link" onClick={back} >
               Organisation
             </Link>
          </li>
           <li className="linkRoute">
-            <Link to="/participants" >
+            <Link to="/participants" id="link" onClick={back} >
               Participants
             </Link>
         </li>
         </ul>
    </div>
-   </>
+   </> 
   );
 };
 export default TheNav;

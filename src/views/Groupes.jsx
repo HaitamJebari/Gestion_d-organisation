@@ -67,7 +67,7 @@ return(
             <ul>
             {
             //    console.log() 
-                arr?.data?.data?.map((e)=>{
+                arr?.data?.map((e)=>{
                     return (
                     <li key={e.id}>
                         {e?.attributes?.group_name}                       

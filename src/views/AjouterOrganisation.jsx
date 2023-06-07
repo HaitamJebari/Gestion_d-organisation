@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react'
-import { Alert, Button, Form } from 'react-bootstrap'
+import { Alert, Button, Container, Form } from 'react-bootstrap'
 import {ajouter} from '../api/organisation';
 import {api} from '../api/Grou';
 import {Link} from 'react-router-dom'
+import Multiselect from 'multiselect-react-dropdown'
 import Select from 'react-select';
 import { FaSearch , FaArrowLeft} from 'react-icons/fa';
 import InputGroup from 'react-bootstrap/InputGroup'
@@ -17,9 +18,19 @@ export default function AjouterOrganisation() {
     const [idgr,setIdgr] = useState([])
     const [input,setInput]=useState("");
     const [gr,setGr]=useState("")
+    const [options, setOptions] =useState([]);
 
-
-
+useEffect(()=>{
+  const getg = [];
+  const getcountrydata= async()=>{
+    const reqData= await api();
+    reqData.data.map((e)=>{
+      getg.push(e.attributes.group_name)
+    })
+    setOptions(getg);
+  }
+getcountrydata();
+},[]);
     // ajouter organisation 
 
     const ajouterorg = ()=>{
@@ -34,7 +45,7 @@ export default function AjouterOrganisation() {
       const callapi = async () =>{
           let data = await api();
           setGrtab(data);
-          setGr(data)
+          setGr(data);
       }
       
       callapi()
@@ -111,34 +122,27 @@ fetchData(value);
         </div>
 
         <div className="rech" id='rch'>
-         <h5 className="h5gr">Selectionnez votre Groupes</h5>
-                            <div className="input-wrapper">
-                                <FaSearch id="search-icon"/>
-                                <input 
-                                    placeholder="Type to search groups..."
-                                    id="placegr"
-                                    value={input}
-                                    onChange={(e)=>handleChange(e.target.value)}
-                                />
-                            </div>
-                  <div className="Checkdiv">
-                  {
-                      grtab?.data?.map((e)=>{
-                        return (
-                          <div key={e.id}>
-                            <Form.Check
-                              value={e?.attributes?.group_name}
-                              id={e.id}
-                              type="switch"
-                              label={e?.attributes?.group_name}
-                              onChange={(e)=>datachange(e,e.id)}
-                            /> 
-                          </div> 
-                        ) 
-                      })
-                  }
-
-                  </div>
+        <React.Fragment>
+         <Container className="content ">
+        <div className="row">
+          <div className="col-sm-12">
+         <form className="row g-3" method='post'>
+             <div className="col-md-5">
+                <label  className="form-label"> </label>
+                    <div className="text-dark">
+                      <Multiselect
+                      isObject={false}
+                      onRemove={(event)=>{  console.log(event)} }
+                      onSelect={ (event)=>{ datachange}}
+                      options={ options }
+                      />
+                    </div>
+                    </div>
+        </form>
+        </div>
+        </div>
+        </Container>
+    </React.Fragment>
                   </div>
 
                 <div>

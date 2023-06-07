@@ -12,9 +12,12 @@ export default function Group() {
     const [open, setOpen] = useState(false);
     const [currentPage, setCurrentPage] = useState(1);
     const [tab,setTab] = useState([])
+    const [tab2,setTab2] = useState([])
+
+    api(setTab2)
     useEffect(() => {
         axios
-          .get(`http://192.168.1.88:1337/api/groups?pagination[page]=${currentPage}&pagination[pageSize]=3`)
+          .get(`http://localhost:1337/api/groups?pagination[page]=${currentPage}&pagination[pageSize]=5`)
           .then((response) => {
             console.log(response);
             // let res = response.json();
@@ -51,7 +54,7 @@ export default function Group() {
     </Link>
     <div className='table'>
     <ReactPaginate
-                pageCount={3}
+                pageCount={tab2.data?.length /5}
                 onPageChange={handlePageChange}
                 containerClassName={"pagination ml-5"}
                 activeClassName={"active"}

@@ -1,6 +1,6 @@
 import React from 'react'
 import { useEffect, useState } from 'react'
-import { Alert, Button, Collapse, Form } from 'react-bootstrap';
+import { Alert, Button, Collapse, Container, Form } from 'react-bootstrap';
 import { useParams } from 'react-router-dom'
 import {showV,modifiedval} from '../api/organisation';
 import InputGroup from 'react-bootstrap/InputGroup'
@@ -8,6 +8,7 @@ import {api} from "../api/Grou";
 import {Link} from 'react-router-dom'
 import { FaSearch , FaArrowLeft} from 'react-icons/fa';
 import '../Organisation_liste.css'
+import Multiselect from 'multiselect-react-dropdown';
 
 
 export default function UpdateOraganisation() {
@@ -27,6 +28,8 @@ export default function UpdateOraganisation() {
     const [restabl,setRestabl] = useState([]);
     const [aff, setaff]=useState([])
     const [input,setInput]=useState("")
+    const [content,setcontent]=useState([])
+    const [cheked,setcheked]=useState([])
 
 
 
@@ -41,17 +44,24 @@ export default function UpdateOraganisation() {
           setDefdesctval(res.data.attributes.description);
           setIscheck(res.data.attributes.groups.data);
           let result = []
+          let cont = []
+          let chek = []
           let oldN = []
           data?.data?.map((e) => {
             if (res?.data?.attributes?.groups?.data?.find((i)=>i.id === e.id)){
               result.push({"id" : e.id , "group_name": e.attributes.group_name , "checked" : true });
               oldN.push(e.id);
+              chek.push(e.attributes.group_name)
+              cont.push(e.attributes.group_name)
           }else{
-              result.push({"id" : e.id , "group_name": e.attributes.group_name , "checked" : false})              
+              result.push({"id" : e.id , "group_name": e.attributes.group_name , "checked" : false})     
+              cont.push(e.attributes.group_name)         
           }
           setTest(result);  
           setaff(result)  
           setTestcheked(oldN);
+          setcontent(cont);
+          setcheked(chek)
       })
       }
       callapi();
@@ -128,35 +138,31 @@ return (
 
 
      <div id='rechOrg'>
-                <h5 className="h5gr">Selectionnez votre Groupes</h5>
+     <React.Fragment>
+         <Container className="content ">
+        <div className="row">
+          <div className="col-sm-12">
+         <form className="row g-3" method='post'>
+             <div className="col-md-5">
+                <label  className="form-label"> </label>
+                
+                    <div className="text-dark">
+                    <Multiselect
+                    isObject={false}
+                    onRemove={(event)=>{  console.log(event)} }
+                    onSelect={ (event)=>{ console.log(event) }}
+                    options={ content }
+                    selectedValues={cheked}
+                    />
+                    </div>
 
-                            <div className="input-wrapper">
-                                <FaSearch id="search-icon"/>
-                                <input 
-                                    placeholder="Type to search groups..."
-                                    value={input}
-                                    onChange={(e)=>handleChange(e.target.value)}
-                                />
-                            </div>
-
-      <div className="checkdiv">
-        {
-          aff?.map((e,index)=>{
-            return (
-              <div className='check2' key={e.id}>
-                <Form.Check
-                  onChange={()=>change(index)}
-                  checked = {e.checked}
-                  value={e.group_name}
-                  id={e.id}
-                  type="switch"
-                  label={e.group_name}
-                />  
-              </div>
-            ) 
-          })
-        }
-      </div>
+              
+                </div>
+        </form>
+        </div>
+        </div>
+        </Container>
+    </React.Fragment>
 
 
      </div>   

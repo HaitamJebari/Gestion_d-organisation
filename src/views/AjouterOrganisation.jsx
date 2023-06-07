@@ -31,11 +31,6 @@ useEffect(()=>{
   }
 getcountrydata();
 },[]);
-    // ajouter organisation 
-
-    const ajouterorg = ()=>{
-        ajouter(Norg,descorg,idgr)
-    }
 
     // afficher le checkbox avec les valeur de table group  
 
@@ -53,7 +48,7 @@ getcountrydata();
 
   // put the cheched chaeckboxes to an array 
   
-let datachange = (e,id)=>{
+let datachange = (e)=>{
   const activdata = e.target.checked ;
   const ide = e.target.id;
   if(activdata == true){
@@ -78,7 +73,11 @@ setInput(value);
 fetchData(value);
 } 
 
+    // ajouter organisation 
 
+    const ajouterorg = ()=>{
+      ajouter(Norg,descorg,idgr)
+  }
 
 
   return (
@@ -133,7 +132,7 @@ fetchData(value);
                       <Multiselect
                       isObject={false}
                       onRemove={(event)=>{  console.log(event)} }
-                      onSelect={ (event)=>{ datachange}}
+                      onSelect={(e)=>datachange(e)}
                       options={ options }
                       />
                     </div>

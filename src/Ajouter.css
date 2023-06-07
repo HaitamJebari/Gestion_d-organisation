@@ -51,20 +51,9 @@ label{
     background-color: #efefef;
     width: 100%;
 }
-.input-wrapper{
-    background-color: white;
-    width: 70%;
-    border-radius: 10px;
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    -ms-border-radius: 10px;
-    -o-border-radius: 10px;
-    height: 2.5em;
-    padding: 0 15px;
-    box-shadow: 0px 0px 8px #ddd;
-    display: flex;
-    align-items: center;
-    margin-left:260px;
+
+#Multiselect{
+   margin-left: 17em;
 }
 input{
     background-color: transparent;
@@ -115,12 +104,23 @@ input:focus{
     width: 30em;
   }
   .rech{
-    margin-left: 600px;
+    width: 300px;
+    display: block;
+    margin-left: 320px;
     margin-top: -267px;
   }
+  .Ajouter{
+    margin-left: 245px;
+    margin-top: 185px;
+    width: 550px;
+ }
+ Button{
+  width: 500px;
+ }
   .h5gr{
     padding-left: 17em;
     padding-bottom: 20px;
+    width: 500px;
     font-weight: 400;
   }
   #rch{
@@ -141,10 +141,10 @@ input:focus{
 .badg{
   margin-left: 38em;
 }
-#bg{
-  width: 70px;
-  cursor: pointer;
 
+.multi{
+  background-color: red;
+  z-index: 1;
 }
 #ftimes{
   display: inline;

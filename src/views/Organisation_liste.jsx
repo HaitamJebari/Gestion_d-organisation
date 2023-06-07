@@ -19,8 +19,9 @@ export default function Organisation_liste() {
     const [ortabl2,setOrtabl2] = useState([]);
     getOraganisation(setOrtabl2)
     useEffect(() => {
+        //192.168.1.88
         axios
-          .get(`http://localhost:1337/api/organisations?pagination[page]=${currentPage}&pagination[pageSize]=5`)
+          .get(`http://192.168.0.180:1337/api/organisations?pagination[page]=${currentPage}&pagination[pageSize]=3`)
           .then((response) => {
             console.log(response);
             // let res = response.json();

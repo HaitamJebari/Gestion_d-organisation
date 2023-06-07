@@ -63,7 +63,7 @@ return(
             </Card.Body>
             </div>
             <div className="ml-10 mt-3">
-            <h6 style={{  fontWeight: 'bold' }}>les groups :</h6>
+            <h6 style={{ fontWeight: 'bold' }}>les groups :</h6>
             <ul>
             {
             //    console.log() 

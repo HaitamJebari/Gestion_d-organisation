@@ -38,7 +38,9 @@ function Participants () {
     
     
     const delt = (itemId) =>{
-      fetch(`http://localhost:1337/api/participants/${itemId}`+`?populate=group` ,{ method: 'DELETE' })
+        //groups
+        //192.168.1.88
+      fetch(`http://192.168.1.88:1337/api/participants/${itemId}`+`?populate=group` ,{ method: 'DELETE' })
       .then(response => {
         if (!response.ok) {
             throw new Error('Erreur lors de la suppression des données');

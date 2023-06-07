@@ -16,6 +16,8 @@ export default function Organisation_liste() {
     const [open, setOpen] = useState(false);
     const [currentPage, setCurrentPage] = useState(1);
     const [ortabl,setOrtabl] = useState([]);
+    const [ortabl2,setOrtabl2] = useState([]);
+    getOraganisation(setOrtabl2)
     useEffect(() => {
         //192.168.1.88
         axios
@@ -30,7 +32,7 @@ export default function Organisation_liste() {
           });
       }, [currentPage]);
 
-    
+    //   console.log(ortabl2.data?.length );
     // getOraganisation(setOrtabl);
 
    const deleteorg = (id)=>{
@@ -59,7 +61,7 @@ export default function Organisation_liste() {
     </Link>
     <div className='table'>
             <ReactPaginate
-                pageCount={3}
+                pageCount={ortabl2.data?.length /5}
                 limit={20}
                 onPageChange={handlePageChange}
                 containerClassName={"pagination ml-5"}

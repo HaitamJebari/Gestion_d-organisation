@@ -10,7 +10,7 @@ export const api = async ()=>{
 try{
     let rawData = await fetch('http://192.168.1.88:1337/api/groups');
     let dataJson = await rawData.json();
-    return (dataJson)
+    return dataJson;
 
 }catch (error) {
     console.warn(error);

@@ -8,11 +8,12 @@ import '../Participants.css';
 import ReactPaginate from "react-paginate";
 import axios from "axios";
 function Participants () {
-    const [Participants,setparticipants]=useState([]);
+    const[Participants,setparticipants]=useState([]);
+    const[Participants2,setparticipants2]=useState([]);
     const [open, setOpen] = useState(false);
     const [currentPage, setCurrentPage] = useState(1);
 
-
+    dataAll(setparticipants2)
     // useEffect(()=>{
     //     const data = async () =>{
     //         let dt = await dataAll();
@@ -24,7 +25,7 @@ function Participants () {
 
     useEffect(() => {
         axios
-          .get(`http://192.168.1.88:1337/api/participants?pagination[page]=${currentPage}&pagination[pageSize]=3`)
+          .get(`http://localhost:1337/api/participants?pagination[page]=${currentPage}&pagination[pageSize]=5`)
           .then((response) => {
             console.log(response);
             // let res = response.json();
@@ -79,7 +80,7 @@ function Participants () {
             </div> */}
         <div className="table">
         <ReactPaginate
-                pageCount={3}
+                pageCount={Participants2.data?.length /5}
                 onPageChange={handlePageChange}
                 containerClassName={"pagination ml-5"}
                 activeClassName={"active"}
@@ -108,7 +109,7 @@ function Participants () {
                                     consulter
                                 </Button>
                           </Link>
-                            <Button as="Link" id="Button" variant="outline-danger" className='ml-5' onClick={handleClick}>
+                            <Button as="Link" id="Button" variant="outline-danger" onClick={handleClick}>
                                 Supprimer
                             </Button>
                             <Confirm

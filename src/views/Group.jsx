@@ -12,6 +12,9 @@ export default function Group() {
     const [open, setOpen] = useState(false);
     const [currentPage, setCurrentPage] = useState(1);
     const [tab,setTab] = useState([])
+    const [tab2,setTab2] = useState([])
+
+    api(setTab2)
     useEffect(() => {
         //192.168.1.88
         axios
@@ -52,7 +55,7 @@ export default function Group() {
     </Link>
     <div className='table'>
     <ReactPaginate
-                pageCount={3}
+                pageCount={tab2.data?.length /5}
                 onPageChange={handlePageChange}
                 containerClassName={"pagination ml-5"}
                 activeClassName={"active"}

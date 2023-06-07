@@ -28,7 +28,7 @@
     "react-paginate": "^8.2.0",
     "react-pro-sidebar": "^1.0.0",
     "react-router-dom": "^6.10.0",
-    "react-select": "^5.7.2",
+    "react-select": "^5.7.3",
     "strapi-sdk-javascript": "^0.3.3"
   },
   "devDependencies": {

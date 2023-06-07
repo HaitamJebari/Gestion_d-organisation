@@ -2,9 +2,11 @@ import React, { useEffect, useState } from "react";
 import {Link} from 'react-router-dom'
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
+import { Container } from "react-bootstrap";
+import Multiselect from 'multiselect-react-dropdown';
 import {FaSearch , FaArrowLeft , FaTimes} from "react-icons/fa";
-import Badge from 'react-bootstrap/Badge';
 import '../Ajouter.css'
+import { api } from "../api/Grou";
 import { dataAll } from "../api/Particip";
 
 function Ajouter(){
@@ -15,7 +17,56 @@ function Ajouter(){
     const [ide,setide] = useState([]);
     const [input,setInput]=useState("");
     const [gr,setGr]=useState("");
-    const [bdg, setbdg]=useState(false)
+    {/* The LASTE MODIFICATION */}
+    // const [idgr,setIdgr] = useState([])
+
+    
+    
+    
+    const [options, setOptions] =useState([]);
+    useEffect(()=>{
+        const callapi = async () =>{
+            let data = await api();
+            setOptions(data);
+        }  
+        callapi()
+    },[])
+
+
+    const [multigr,setMultigr]=useState([])
+
+
+// MULTISELECT
+    useEffect(()=>{
+        const getGrpMulti = async()=>{
+            const getMulti= []
+            let rawData = await fetch('http://192.168.1.88:1337/api/groups');
+            let dataJson = await rawData.json();
+               console.log('DATAJSON :',dataJson.data);
+            for(let key in dataJson.data){
+                getMulti.push([dataJson.data[key].attributes.group_name])
+            }
+               console.log('GETMULTI :',getMulti);
+            setMultigr(getMulti);
+        }
+        getGrpMulti();
+    },[])
+
+
+
+    // useEffect(() => {
+    //     fetch("http://192.168.1.88:1337/api/groups")
+    //     .then((response) => response.json())
+    //     .then((dataG) => {setMultigroupes(dataG) ; setMultigr(dataG)})
+    //     .catch((error) => console.error(error));
+    //     console.log('Groupes : ',multigr);
+    //     for(let i=0; i<)
+    // }, []);
+
+
+   
+
+
 
     useEffect(()=>{
         const callapi = async () =>{
@@ -25,22 +76,13 @@ function Ajouter(){
         callapi(); 
     },[])
 
-   //BADGE
-   const handleSwitchClick = () => {
-      //       let switches = []
-//       gr?.data?.map((e)=>{
-//          return(
-//              switches.push({"group_name": e.attributes.group_name, "checked":bdg})
-//          )
-//    });
-//    console.log('SWITCHES',switches);
-  }
+  
 
     const handleCheckboxChange = (e, id) => {
         const isChecked = e.target.checked
         if (isChecked == true){
             let a = [...ide,id]
-            setide(a)      
+            setide(a)     
         }else{
             let b = ide.filter((a)=>a!=id)
             setide(b)       
@@ -48,16 +90,31 @@ function Ajouter(){
     };
    
       
-
+  {/* The LASTE MODIFICATION */}
+    // let datachange = (e,id)=>{
+    //     const activdata = e.target.checked ;
+    //     const ide = e.target.id;
+    //     if(activdata == true){
+      
+    //       setIdgr([...idgr,ide]);
+      
+        
+    //     }else{
+    //       let o = idgr.filter((a)=> a != ide)
+    //       setIdgr(o)
+      
+    //     }}
 
     
     
     useEffect(() => {
+        ///192.168.1.88
           fetch("http://192.168.1.88:1337/api/groups")
           .then((response) => response.json())
           .then((data) => {setgroupes(data) ; setGr(data)})
           .catch((error) => console.error(error));
       }, []);
+
    
   
       
@@ -73,7 +130,9 @@ function Ajouter(){
         setInput(value);
         fetchData(value);
     }  
+    const deltB=()=>{
 
+    }
 
 
     function add (nom,prenom,tel){
@@ -91,8 +150,9 @@ function Ajouter(){
                         }
                 }
 
-           console.log(mydt);     
-        fetch('http://192.168.1.88:1337/api/participants?populate=groups' ,{ 
+           console.log(mydt); 
+           //192.168.1.88    
+        fetch('http://192.168.0.180:1337/api/participants?populate=groups' ,{ 
                method: 'POST' , 
                headers:myheaders,
                body: JSON.stringify(mydt),
@@ -167,50 +227,49 @@ function Ajouter(){
             </div>
 
             <div className="rech">
-                <h5 className="h5gr">Selectionnez votre Groupes</h5>
-                <div className="input-wrapper">
-                    <FaSearch id="search-icon"/>
-                    <input 
-                        placeholder="Type to search groups..."
-                        id="placegr"
-                        value={input}
-                        onChange={(e)=>handleChange(e.target.value)}
-                    />              
-                </div>
-                    <div className="Checkdiv">
-                             
-                            {
-                                
-                                    gr?.data?.map((group)=>{
-                                    return (
-                                    <div className="check2" key={group.id}>
-                                            <Form.Check 
-                                                value={group?.attributes?.group_name}
-                                                type="switch"
-                                                label={group?.attributes?.group_name}
-                                                onChange={(e)=>handleCheckboxChange(e,group.id)}
-                                            />                         
-                                    </div>
-                                    
-                                    )
-                                    
-                                })
-                                
-                            }  
-      
-                            
-                    </div>
-                   <div className="badg">
-                    
-                    </div>             
+                
+                           <h5 className="h5gr">Selectionnez votre Groupes</h5>
+
+                                {/* <FaSearch id="search-icon"/>
+                                <input 
+                                    placeholder="Type to search groups..."
+                                    id="placegr"
+                                    value={input}
+                                    onChange={(e)=>handleChange(e.target.value)}
+                                /> */}
+
+
+                                {/* //MultiSelect */}
+                                {/* The LASTE MODIFICATION */}
+                                {/* {
+                                    options?.data?.map((e)=>{
+                                    return(
+                                      <div key={e.id}>
+                                         
+                                      </div>
+                                    )    
+                                   })
+                                } */}
+                                 <Multiselect 
+                                            isObject={false}
+                                            onRemove={(event)=>{  console.log('EVENT ONREMOVE',event)} }
+                                            onSelect={ (event)=>{ console.log('ENENT ONSELECT',event) }}
+                                            options={multigr}
+                                            id="Multiselect"  //Groupes              
+                                />
+                     <div>
+                     
+                    </div>         
                     
 
             </div>
-            <div>
+            <div className="Ajouter">
                 <Link to={`/Participants`}>
-                    <Button variant="outline-success" className="Ajt" onClick={()=>add(nom,prenom,tel)}>Ajouter</Button>
+                    <Button variant="outline-success"  onClick={()=>add(nom,prenom,tel)}>Ajouter</Button>
                 </Link>
-            </div>       
+            </div> 
+            
+                
             </div>  
         </>
     )

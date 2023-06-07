@@ -8,7 +8,7 @@ import '../Participants.css';
 import ReactPaginate from "react-paginate";
 import axios from "axios";
 function Participants () {
-    const[Participants,setparticipants]=useState([]);
+    const [Participants,setparticipants]=useState([]);
     const [open, setOpen] = useState(false);
     const [currentPage, setCurrentPage] = useState(1);
 
@@ -37,6 +37,8 @@ function Participants () {
     
     
     const delt = (itemId) =>{
+        //groups
+        //192.168.1.88
       fetch(`http://192.168.1.88:1337/api/participants/${itemId}`+`?populate=group` ,{ method: 'DELETE' })
       .then(response => {
         if (!response.ok) {

@@ -13,8 +13,9 @@ export default function Group() {
     const [currentPage, setCurrentPage] = useState(1);
     const [tab,setTab] = useState([])
     useEffect(() => {
+        //192.168.1.88
         axios
-          .get(`http://192.168.1.88:1337/api/groups?pagination[page]=${currentPage}&pagination[pageSize]=3`)
+          .get(`http://192.168.0.180:1337/api/groups?pagination[page]=${currentPage}&pagination[pageSize]=3`)
           .then((response) => {
             console.log(response);
             // let res = response.json();

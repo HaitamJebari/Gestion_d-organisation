@@ -25,7 +25,7 @@ function Participants () {
 
     useEffect(() => {
         axios
-          .get(`http://192.168.1.88:1337/api/participants`)
+          .get(`http://192.168.1.88:1337/api/participants?pagination[page]=${currentPage}&pagination[pageSize]=5`)
           .then((response) => {
             console.log(response);
             // let res = response.json();
@@ -79,12 +79,12 @@ function Participants () {
               
             </div> */}
         <div className="table">
-        {/* <ReactPaginate
+        <ReactPaginate
                 pageCount={Participants2.data?.length /5}
                 onPageChange={handlePageChange}
                 containerClassName={"pagination ml-5"}
                 activeClassName={"active"}
-            /> */}
+            />
          <Table striped bordered hover >
                <thead>
                   <th>Nom</th>

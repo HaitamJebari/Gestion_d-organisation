@@ -1,7 +1,7 @@
-import React , {useEffect , useState} from "react";
+import React , {useContext, useEffect , useState} from "react";
 import { dataAll, getgr ,Getgroupes} from "../api/Particip";
 import { Button, Card, Table } from "react-bootstrap";
-import { Link, useParams } from 'react-router-dom';
+import { Link, useLocation, useParams } from 'react-router-dom';
 import {FaArrowLeft} from "react-icons/fa";
 import utilisateur from "../images/profile.jpg"
 import { data } from "autoprefixer";
@@ -12,7 +12,10 @@ import '../Modifier.css';
 function Groupes(){
     const {id} = useParams()
     const [groups,setgroupes]=useState([]);
-    const [arr,setArr]=useState([]);
+    const [multigr,setMultigr]=useState([])
+
+    const {selectedArray}=useContext(Context)
+
 
     
     useEffect(()=>{
@@ -25,16 +28,31 @@ function Groupes(){
         callapi(); 
         
     },[])
-    useEffect(()=>{
-        const callgrou = async () =>{
-            let res = await getgr(id); 
-            // console.log(data);
-            setArr(res);     
+    // useEffect(()=>{
+    //     const callgrou = async () =>{
+    //         let res = await getgr(id); 
+    //         // console.log(data);
+    //         setArr(res);     
          
-        }   
-        callgrou(); 
-        console.log(arr);
+    //     }   
+    //     callgrou(); 
+    //     console.log("MultiGr :",multigr);
+    // },[])
+    useEffect(()=>{
+        const getGrpMulti = async()=>{
+            const getMulti= []
+            let rawData = await fetch('http://192.168.1.88:1337/api/groups');
+            let dataJson = await rawData.json();
+               console.log('DATAJSON :',dataJson.data);
+            for(let key in dataJson.data){
+                getMulti.push([dataJson.data[key].attributes.group_name])
+            }
+               console.log('GETMULTI :',getMulti);
+            setMultigr(getMulti);
+        }
+        getGrpMulti();
     },[])
+    
 
 return(
     <>
@@ -63,18 +81,9 @@ return(
             </Card.Body>
             </div>
             <div className="ml-10 mt-3">
-            <h6 style={{ fontWeight: 'bold' }}>les groups :</h6>
+            <h6 style={{ fontWeight: 'bold' }}>les groups :</h6><br/>
             <ul>
-            {
-            //    console.log() 
-                arr?.data?.map((e)=>{
-                    return (
-                    <li key={e.id}>
-                        {e?.attributes?.group_name}                       
-                    </li>
-                    )
-                })
-            }
+                 {selectedArray}
             </ul>
             </div>
             </div>

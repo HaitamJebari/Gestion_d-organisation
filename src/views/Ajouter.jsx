@@ -20,7 +20,14 @@ function Ajouter(){
     {/* The LASTE MODIFICATION */}
     // const [idgr,setIdgr] = useState([])
 
-    
+    const handleRemove = (event) => {
+        setide((prevValues) => prevValues.filter(value => value !== event));
+        // console.log('idgrremove',idgr)
+      };
+    const getevent = (event) =>{
+      setide(event);
+    //   console.log('idgr',idgr);
+    }
     
     
     const [options, setOptions] =useState([]);
@@ -78,16 +85,16 @@ function Ajouter(){
 
   
 
-    const handleCheckboxChange = (e, id) => {
-        const isChecked = e.target.checked
-        if (isChecked == true){
-            let a = [...ide,id]
-            setide(a)     
-        }else{
-            let b = ide.filter((a)=>a!=id)
-            setide(b)       
-        }
-    };
+    // const handleCheckboxChange = (e, id) => {
+    //     const isChecked = e.target.checked
+    //     if (isChecked == true){
+    //         let a = [...ide,id]
+    //         setide(a)     
+    //     }else{
+    //         let b = ide.filter((a)=>a!=id)
+    //         setide(b)       
+    //     }
+    // };
    
       
   {/* The LASTE MODIFICATION */}
@@ -126,13 +133,13 @@ function Ajouter(){
             });
             setGr({data:results})
     }
-    const handleChange=(value)=>{
-        setInput(value);
-        fetchData(value);
-    }  
-    const deltB=()=>{
+    // const handleChange=(value)=>{
+    //     setInput(value);
+    //     fetchData(value);
+    // }  
+    // const deltB=()=>{
 
-    }
+    // }
 
 
     function add (nom,prenom,tel){
@@ -152,7 +159,7 @@ function Ajouter(){
 
            console.log(mydt); 
            //192.168.1.88    
-        fetch('http://192.168.0.180:1337/api/participants?populate=groups' ,{ 
+        fetch('http://192.168.1.88:1337/api/participants?populate=groups' ,{ 
                method: 'POST' , 
                headers:myheaders,
                body: JSON.stringify(mydt),
@@ -250,13 +257,13 @@ function Ajouter(){
                                     )    
                                    })
                                 } */}
-                                 <Multiselect 
-                                            isObject={false}
-                                            onRemove={(event)=>{  console.log('EVENT ONREMOVE',event)} }
-                                            onSelect={ (event)=>{ console.log('ENENT ONSELECT',event) }}
-                                            options={multigr}
-                                            id="Multiselect"  //Groupes              
-                                 />
+                                 <Multiselect
+                      isObject={false}
+                      onRemove={handleRemove}
+                      onSelect={(event) => getevent(event)}
+                      options={options}
+                      showCheckbox
+                    />
                      <div>
                      
                     </div>         

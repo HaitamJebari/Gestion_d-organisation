@@ -16,12 +16,12 @@ export default function Group() {
 
     useEffect(()=>{
         const callapi = async () =>{
-            let data = await api();
+            let data = await api(); 
             setTab2(data)
-        }
-        callapi();
+        }   
+        callapi(); 
     },[])
-        
+    
     useEffect(() => {
         //192.168.1.88
         axios
@@ -48,6 +48,7 @@ export default function Group() {
       const handleClick = () => setOpen(true);
       const handleDialogClose = () => setOpen(false);
   
+      console.log('tab2',tab2)
 
   return (
     <>

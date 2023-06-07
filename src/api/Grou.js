@@ -95,7 +95,7 @@ export const upd = async (modifs,id)=>{
     let bod = {"data": {"group_name": modifs}};
 try{
     //192.168.1.88
-    let rawData = await fetch( 'http://192.168.0.180:1337/api/groups/'+id,{
+    let rawData = await fetch( 'http://192.168.1.88:1337/api/groups/'+id,{
         method: 'PUT',        
         headers: {
             'Content-Type': 'application/json'

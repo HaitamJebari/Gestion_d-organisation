@@ -256,7 +256,7 @@ function Ajouter(){
                                             onSelect={ (event)=>{ console.log('ENENT ONSELECT',event) }}
                                             options={multigr}
                                             id="Multiselect"  //Groupes              
-                                />
+                                 />
                      <div>
                      
                     </div>         

@@ -77,47 +77,14 @@ export default function Group() {
         </tr>
         </thead>
         {/* ici tbody */}
-        {/* <tbody>
+        <tbody>
             <tr><td>1</td><td>GroupNum1</td><td><Button as="Link" variant="outline-primary"> Modifier</Button><Button as="Link" variant="outline-danger" className='ml-5'onClick={handleClick}>Supprimer</Button></td></tr>
             <tr><td>2</td><td>GroupNum2</td><td><Button as="Link" variant="outline-primary"> Modifier</Button><Button as="Link" variant="outline-danger" className='ml-5'onClick={handleClick}>Supprimer</Button></td></tr>
             <tr><td>3</td><td>GroupNum3</td><td><Button as="Link" variant="outline-primary"> Modifier</Button><Button as="Link" variant="outline-danger" className='ml-5'onClick={handleClick}>Supprimer</Button></td></tr>
             <tr><td>4</td><td>GroupNum4</td><td><Button as="Link" variant="outline-primary"> Modifier</Button><Button as="Link" variant="outline-danger" className='ml-5'onClick={handleClick}>Supprimer</Button></td></tr>
 
-        </tbody> */}
- <tbody>
-            {
-                tab?.data?.data?.map((e)=>{
-                    // console.log(e);
-                    return (
-                        <tr key={e.id}>
-                            <td>{e.id}</td>
-                            <td>{e.attributes.group_name}</td>
-                            <td>
-                            <Link to={`/ModifierGroup/${e.id}`}>             
-                            <Button as="Link" variant="outline-primary">
-                                Modifier
-                            </Button>
-                            </Link>
-                            {/* <Link to={`/api/groups/${e.id}`}> */}
-                                <Button as="Link" variant="outline-danger" className='ml-5'onClick={handleClick}>
-                                Supprimer
-                                </Button>
-                                <Confirm
-                                    isOpen={open}
-                                    title={`Delete le group : `+e.attributes.group_name}
-                                    content="Are you sure you want to delete this item?"
-                                    onConfirm={()=>deleteItem(e.id)}
-                                    onClose={handleDialogClose}
-                            />
-                            {/* </Link> */}
+        </tbody>
 
-
-                            </td>
-                        </tr>    
-                    )
-                })
-            }
-        </tbody> 
         
     </Table>
     </div>
@@ -127,3 +94,37 @@ export default function Group() {
 }
 
 
+{/* <tbody>
+{
+    tab?.data?.data?.map((e)=>{
+        // console.log(e);
+        return (
+            <tr key={e.id}>
+                <td>{e.id}</td>
+                <td>{e.attributes.group_name}</td>
+                <td>
+                <Link to={`/ModifierGroup/${e.id}`}>             
+                <Button as="Link" variant="outline-primary">
+                    Modifier
+                </Button>
+                </Link>
+                {/* <Link to={`/api/groups/${e.id}`}> */}
+                //     <Button as="Link" variant="outline-danger" className='ml-5'onClick={handleClick}>
+                //     Supprimer
+                //     </Button>
+                //     <Confirm
+                //         isOpen={open}
+                //         title={`Delete le group : `+e.attributes.group_name}
+                //         content="Are you sure you want to delete this item?"
+                //         onConfirm={()=>deleteItem(e.id)}
+                //         onClose={handleDialogClose}
+                // />
+                {/* </Link> */}
+
+
+            //     </td>
+            // </tr>    
+//         )
+//     })
+// }
+// </tbody>  */}

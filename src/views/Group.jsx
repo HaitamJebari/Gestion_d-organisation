@@ -59,7 +59,7 @@ export default function Group() {
     <Link to='/Ajoutergr'>             
            <Button as="Link" variant="outline-success" className='ajt'>
            Ajouter un Nouveau Groupe
-        </Button>
+           </Button>
     </Link>
     <div className='table'>
     <ReactPaginate
@@ -68,7 +68,7 @@ export default function Group() {
                 containerClassName={"pagination ml-5"}
                 activeClassName={"active"}
             />
-         <Table striped bordered hover>
+    <Table id='table' striped bordered hover>
         <thead>
         <tr>
           <th>ID</th>
@@ -76,7 +76,15 @@ export default function Group() {
           <th>ACTION</th>
         </tr>
         </thead>
-        <tbody>
+        {/* ici tbody */}
+        {/* <tbody>
+            <tr><td>1</td><td>GroupNum1</td><td><Button as="Link" variant="outline-primary"> Modifier</Button><Button as="Link" variant="outline-danger" className='ml-5'onClick={handleClick}>Supprimer</Button></td></tr>
+            <tr><td>2</td><td>GroupNum2</td><td><Button as="Link" variant="outline-primary"> Modifier</Button><Button as="Link" variant="outline-danger" className='ml-5'onClick={handleClick}>Supprimer</Button></td></tr>
+            <tr><td>3</td><td>GroupNum3</td><td><Button as="Link" variant="outline-primary"> Modifier</Button><Button as="Link" variant="outline-danger" className='ml-5'onClick={handleClick}>Supprimer</Button></td></tr>
+            <tr><td>4</td><td>GroupNum4</td><td><Button as="Link" variant="outline-primary"> Modifier</Button><Button as="Link" variant="outline-danger" className='ml-5'onClick={handleClick}>Supprimer</Button></td></tr>
+
+        </tbody> */}
+ <tbody>
             {
                 tab?.data?.data?.map((e)=>{
                     // console.log(e);
@@ -109,7 +117,7 @@ export default function Group() {
                     )
                 })
             }
-        </tbody>
+        </tbody> 
         
     </Table>
     </div>
@@ -117,3 +125,5 @@ export default function Group() {
     </>
   )
 }
+
+
